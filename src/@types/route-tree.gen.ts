@@ -11,12 +11,18 @@
 // Import Routes
 
 import { Route as rootRoute } from './../routes/__root'
-import { Route as IndexImport } from './../routes/index'
+import { Route as ShowsIndexImport } from './../routes/_shows/index'
+import { Route as ShowsShowIdImport } from './../routes/_shows/$showId'
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
+const ShowsIndexRoute = ShowsIndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ShowsShowIdRoute = ShowsShowIdImport.update({
+  path: '/$showId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -24,8 +30,12 @@ const IndexRoute = IndexImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      preLoaderRoute: typeof IndexImport
+    '/_shows/$showId': {
+      preLoaderRoute: typeof ShowsShowIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/_shows/': {
+      preLoaderRoute: typeof ShowsIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -33,6 +43,9 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([IndexRoute])
+export const routeTree = rootRoute.addChildren([
+  ShowsShowIdRoute,
+  ShowsIndexRoute,
+])
 
 /* prettier-ignore-end */
