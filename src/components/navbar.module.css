@@ -1,0 +1,31 @@
+.list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  height: 4.75rem;
+  gap: 2rem;
+  list-style: none;
+
+  padding: 0.875rem;
+  background: var(--primary-700);
+
+  border-radius: 12px;
+  border: 6px solid var(--primary-500);
+
+
+}
+
+.navLink {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+
+  &[data-current="true"] {
+    background: var(--primary-500);
+  }
+
+  &:hover {
+    background: var(--primary-500);
+    transition: background-color 0.4s;
+  }
+}

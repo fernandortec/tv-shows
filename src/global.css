@@ -1,3 +1,15 @@
+:root {
+--primary-300: #383838;
+--primary-500: #1F1F1F;
+--primary-700: #141414; 
+
+--secondary-300: #FF4545; 
+--secondary-500: #E50000; 
+--secondary-700: #B20000;
+
+--white: #FFF;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,9 +17,15 @@
 }
 
 body {
-  --webkit-font-smoothing: antialiased
+  --webkit-font-smoothing: antialiased;
+  background: var(--primary-700);
 }
 
 body,input,textarea,button {
   font: 400 1rem Roboto, 'sans-serif'
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
