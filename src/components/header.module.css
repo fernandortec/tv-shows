@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
+
+  max-width: 70vw;
+}
+
+.logo {
+  width: 4rem;
+  height: 4rem; 
+}
