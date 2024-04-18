@@ -20,6 +20,7 @@
 body {
   --webkit-font-smoothing: antialiased;
   background: var(--primary-700);
+  color: var(--white);
 }
 
 body,
@@ -32,4 +33,9 @@ button {
 a {
   text-decoration: none;
   color: white;
+}
+
+body main {
+  max-width: 80vw;
+  margin: auto;
 }

@@ -5,8 +5,15 @@
   gap: 4px;
 
   background: var(--secondary-500);
+  border: none;
   color: var(--white);
 
   padding: 1.125rem 1.5rem;
   border-radius: 8px;
+}
+
+.button:hover {
+  background-color: var(--secondary-700);
+  transition: background-color 0.2s;
+  cursor: pointer;
 }

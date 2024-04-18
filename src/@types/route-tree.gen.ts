@@ -11,18 +11,24 @@
 // Import Routes
 
 import { Route as rootRoute } from './../routes/__root'
-import { Route as ShowsIndexImport } from './../routes/_shows/index'
-import { Route as ShowsShowIdImport } from './../routes/_shows/$showId'
+import { Route as IndexImport } from './../routes/index'
+import { Route as ShowsIndexImport } from './../routes/shows/index'
+import { Route as ShowsShowIdImport } from './../routes/shows/$showId'
 
 // Create/Update Routes
 
-const ShowsIndexRoute = ShowsIndexImport.update({
+const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
+const ShowsIndexRoute = ShowsIndexImport.update({
+  path: '/shows/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ShowsShowIdRoute = ShowsShowIdImport.update({
-  path: '/$showId',
+  path: '/shows/$showId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -30,11 +36,15 @@ const ShowsShowIdRoute = ShowsShowIdImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_shows/$showId': {
+    '/': {
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/shows/$showId': {
       preLoaderRoute: typeof ShowsShowIdImport
       parentRoute: typeof rootRoute
     }
-    '/_shows/': {
+    '/shows/': {
       preLoaderRoute: typeof ShowsIndexImport
       parentRoute: typeof rootRoute
     }
@@ -44,6 +54,7 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
+  IndexRoute,
   ShowsShowIdRoute,
   ShowsIndexRoute,
 ])

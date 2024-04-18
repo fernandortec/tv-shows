@@ -10,7 +10,7 @@ import logo from "/assets/tv-white.svg";
 import styles from "./index.module.css";
 import { Button } from "@/components/button";
 
-export const Route = createFileRoute("/_shows/")({
+export const Route = createFileRoute("/")({
 	component: () => <ShowsPage />,
 });
 
