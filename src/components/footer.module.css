@@ -1,0 +1,45 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8rem;
+
+  color: var(--white);
+  padding: 6rem 10rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav p {
+  color: white;
+  margin-bottom: 0.7rem;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  list-style: none;
+}
+
+.nav li {
+  color: var(--grey-500)
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 0.8rem;
+  color: var(--grey-500)
+}
+
+.about div span {
+  position: relative;
+  margin: 0px 2.5rem;
+}
