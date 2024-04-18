@@ -1,5 +1,10 @@
 .main {
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  overflow-y: hidden;
 }
 
 .imageRows {
@@ -7,7 +12,6 @@
   flex-direction: column;
   justify-content: center;
 
-  max-width: 98vw;
   z-index: -20;
 
   position: absolute;
@@ -15,10 +19,71 @@
   z-index: -20;
   top: 0;
 
+  opacity: 0.2;
   gap: 2rem;
-            opacity: 0.2;
 }
 
 .main img {
   object-fit: cover;
+}
+
+.fadeOutFromTop {
+  position: relative;
+}
+
+.fadeOutFromTop::after {
+  content: '';
+  background: linear-gradient(to bottom, var(--primary-700), transparent);
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.fadeOutFromBottom {
+  position: relative;
+}
+
+.fadeOutFromBottom::after {
+  content: '';
+  background: linear-gradient(to top, var(--primary-700), transparent);
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+}
+
+.centerLogo {
+  width: 30rem;
+  opacity: 0.2;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 1100px;
+
+  color: var(--white)
+}
+
+.infoSection h1 {
+  font-size: 3rem;
+}
+
+.infoSection p {
+  margin-top: 2rem;
+  font-size: 1.025rem;
+
+  color: #999999;
+  line-height: 150%;
+  text-align: center;
+}
+
+button {
+  margin-top: 4rem;
 }

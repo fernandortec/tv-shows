@@ -1,5 +1,6 @@
 import styles from "./header.module.css";
-import logo from "../../public/assets/tv-white.svg";
+import logo from "/assets/tv-white.svg";
+
 import { Navbar } from "./navbar";
 import { Bell,Search} from "lucide-react";
 

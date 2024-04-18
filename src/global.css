@@ -1,13 +1,14 @@
 :root {
---primary-300: #383838;
---primary-500: #1F1F1F;
---primary-700: #141414; 
+  --primary-300: #383838;
+  --primary-500: #1F1F1F;
+  --primary-700: #141414;
 
---secondary-300: #FF4545; 
---secondary-500: #E50000; 
---secondary-700: #B20000;
+  --secondary-300: #FF4545;
+  --secondary-500: #E50000;
+  --secondary-700: #B20000;
 
---white: #FFF;
+  --white: #FFF;
+  --grey-500: #999999;
 }
 
 * {
@@ -21,8 +22,11 @@ body {
   background: var(--primary-700);
 }
 
-body,input,textarea,button {
-  font: 400 1rem Roboto, 'sans-serif'
+body,
+input,
+textarea,
+button {
+  font: 400 1rem Manrope, 'sans-serif'
 }
 
 a {
