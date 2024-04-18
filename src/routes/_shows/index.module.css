@@ -1,0 +1,24 @@
+.main {
+  overflow-x: hidden;
+}
+
+.imageRows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 98vw;
+  z-index: -20;
+
+  position: absolute;
+  margin-top: 2rem;
+  z-index: -20;
+  top: 0;
+
+  gap: 2rem;
+            opacity: 0.2;
+}
+
+.main img {
+  object-fit: cover;
+}

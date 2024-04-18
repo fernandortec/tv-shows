@@ -1,6 +1,7 @@
 import styles from "./header.module.css";
-import logo from "../../public/tv-white.svg";
+import logo from "../../public/assets/tv-white.svg";
 import { Navbar } from "./navbar";
+import { Bell,Search} from "lucide-react";
 
 export function Header(): JSX.Element {
 	return (
@@ -12,8 +13,9 @@ export function Header(): JSX.Element {
 
 			<Navbar />
 
-			<div>
-				<p>Se inscreva</p>
+			<div className={styles.actions}>
+				<Search size="22" />
+				<Bell size="22" />
 			</div>
 		</header>
 	);

@@ -6,7 +6,7 @@
   margin: 0 auto;
 
   margin-top: 1.5rem;
-  max-width: 70vw;
+  max-width: 80vw;
 }
 
 .logo {
@@ -22,6 +22,17 @@
 }
 
 .logo img {
-  width: 4rem;
-  height: 4rem; 
+  width: 3rem;
+  height: 3rem; 
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.actions svg {
+  color: var(--white);
 }
