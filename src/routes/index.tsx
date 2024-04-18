@@ -42,7 +42,7 @@ function ShowsPage(): JSX.Element {
 					facilmente conteúdo
 				</p>
 
-				<Button>Button</Button>
+				<Button variant="play-now">Assista agora</Button>
 			</section>
 		</main>
 	);
