@@ -30,6 +30,10 @@ button:hover {
   width: 3.5rem;
   padding: 0px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background: var(--primary-700);
   color: var(--white);
 }

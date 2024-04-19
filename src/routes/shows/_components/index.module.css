@@ -95,11 +95,3 @@
 
   gap: 1.275rem;
 }
-
-.genresSection {
-  display: flex;
-  gap: 1rem;
-
-  width: 100%;
-  overflow-x: scroll;
-}

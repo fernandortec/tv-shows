@@ -3,13 +3,12 @@ import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import htmlParser from "react-html-parser";
 
-import { Button } from "@/components/button";
-import { Plus, ThumbsUp, Volume2Icon } from "lucide-react";
-import styles from "./index.module.css";
 import { getAllShows } from "@/api/get-all-shows";
+import { Button } from "@/components/button";
 import { ShowCard } from "@/components/show-card";
-import { ActionCard } from "@/components/action-card";
-import { availableGenres, genres, genresMap } from "@/helpers/available-genres";
+import { GenresSection } from "@/routes/shows/_components/-genres-section";
+import { Plus, ThumbsUp, Volume2Icon } from "lucide-react";
+import styles from "./_components/index.module.css";
 
 export const Route = createFileRoute("/shows/")({
 	component: () => <ShowsPage />,
@@ -54,14 +53,7 @@ function ShowsPage(): JSX.Element {
 
 			<section className={styles.cardsSection}>
 				<Button variant="primary">Séries</Button>
-
-				<h2>Gêneros disponíveis</h2>
-
-				<div className={styles.genresSection}>
-					{genres.map((genre) => (
-						<ActionCard genre={genre} key={genre} />
-					))}
-				</div>
+				<GenresSection />
 
 				<div className={styles.allShowsSection}>
 					{allShows?.map((show) => (
