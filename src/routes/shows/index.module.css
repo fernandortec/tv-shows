@@ -88,10 +88,18 @@
   margin-bottom: 2rem;
 }
 
-.cardsSection div {
+.allShowsSection {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 3rem;
 
-  gap: 1.5rem;
+  gap: 1.275rem;
+}
+
+.genresSection {
+  display: flex;
+  gap: 1rem;
+
+  width: 100%;
+  overflow-x: scroll;
 }

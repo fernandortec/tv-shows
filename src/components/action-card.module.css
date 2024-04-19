@@ -1,0 +1,46 @@
+.actionCard {
+  position: relative;
+
+  min-height: 16rem;
+  min-width: 14rem;
+
+  padding: 1.5rem;
+
+  background-color: var(--primary-500);
+  border: 1px solid var(--primary-300);
+  position: relative;
+
+  border-radius: 10px;
+}
+
+.actionCard img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.actionCard footer {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.actionCard p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.actionCard p,
+svg {
+  z-index: 20;
+}
+
+.actionCard::after {
+  content: '';
+  background: linear-gradient(to top, var(--primary-700), transparent);
+  position: absolute;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

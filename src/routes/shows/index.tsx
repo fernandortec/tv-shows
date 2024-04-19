@@ -8,6 +8,8 @@ import { Plus, ThumbsUp, Volume2Icon } from "lucide-react";
 import styles from "./index.module.css";
 import { getAllShows } from "@/api/get-all-shows";
 import { ShowCard } from "@/components/show-card";
+import { ActionCard } from "@/components/action-card";
+import { availableGenres, genres, genresMap } from "@/helpers/available-genres";
 
 export const Route = createFileRoute("/shows/")({
 	component: () => <ShowsPage />,
@@ -54,7 +56,14 @@ function ShowsPage(): JSX.Element {
 				<Button variant="primary">Séries</Button>
 
 				<h2>Gêneros disponíveis</h2>
-				<div>
+
+				<div className={styles.genresSection}>
+					{genres.map((genre) => (
+						<ActionCard genre={genre} key={genre} />
+					))}
+				</div>
+
+				<div className={styles.allShowsSection}>
 					{allShows?.map((show) => (
 						<ShowCard key={show.id} />
 					))}
