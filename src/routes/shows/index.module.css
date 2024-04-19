@@ -74,3 +74,24 @@
 
   gap: 1.25rem;
 }
+
+.cardsSection {
+  padding: 0px 3rem;
+}
+
+.cardsSection h3 {
+  font-size: 1.875rem;
+  font-weight: 400;
+}
+
+.cardsSection button {
+  margin-bottom: 2rem;
+}
+
+.cardsSection div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 3rem;
+
+  gap: 1.5rem;
+}

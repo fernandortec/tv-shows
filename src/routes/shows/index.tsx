@@ -1,11 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
 import { getMainShow } from "@/api/get-main-show";
+import { useQuery } from "@tanstack/react-query";
+import { createFileRoute } from "@tanstack/react-router";
 import htmlParser from "react-html-parser";
 
-import styles from "./index.module.css";
 import { Button } from "@/components/button";
-import { Plus, Speaker, SpeakerIcon, ThumbsUp, Volume2Icon } from "lucide-react";
+import { Plus, ThumbsUp, Volume2Icon } from "lucide-react";
+import styles from "./index.module.css";
+import { getAllShows } from "@/api/get-all-shows";
+import { ShowCard } from "@/components/show-card";
 
 export const Route = createFileRoute("/shows/")({
 	component: () => <ShowsPage />,
@@ -13,8 +15,13 @@ export const Route = createFileRoute("/shows/")({
 
 function ShowsPage(): JSX.Element {
 	const { data: mainShow } = useQuery({
-		queryKey: ["show", "main"],
+		queryKey: ["shows", "main"],
 		queryFn: getMainShow,
+	});
+
+	const { data: allShows } = useQuery({
+		queryKey: ["shows"],
+		queryFn: getAllShows,
 	});
 
 	return (
@@ -42,6 +49,17 @@ function ShowsPage(): JSX.Element {
 					</div>
 				</div>
 			</div>
+
+			<section className={styles.cardsSection}>
+				<Button variant="primary">Séries</Button>
+
+				<h2>Gêneros disponíveis</h2>
+				<div>
+					{allShows?.map((show) => (
+						<ShowCard key={show.id} />
+					))}
+				</div>
+			</section>
 		</main>
 	);
 }

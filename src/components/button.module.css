@@ -6,7 +6,7 @@ button {
   border: none;
 
 
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 button:hover {
@@ -15,9 +15,7 @@ button:hover {
 }
 
 .playButton {
-  min-height: 3.5rem;
-  min-width: 8rem;
-  padding: 0px 1rem;
+  padding: 0.8rem 2rem;
 
   background: var(--secondary-500);
   color: var(--white);
