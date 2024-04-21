@@ -12,6 +12,8 @@
 .nav {
   display: flex;
   align-items: start;
+
+
   justify-content: space-between;
 }
 
@@ -48,4 +50,25 @@
 .downloads a {
   color: var(--grey-500);
   text-decoration: underline;
+}
+
+@media(max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    margin: auto;
+    gap: 2rem;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .downloads {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    margin-top: 0.5rem;
+  }
 }
