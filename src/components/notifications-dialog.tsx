@@ -5,8 +5,8 @@ import styles from "./notifications-dialog.module.css";
 export function NotificationsDialog(): JSX.Element {
 	return (
 		<Dialog.Root>
-			<Dialog.Trigger>
-				<Bell size="22" />
+			<Dialog.Trigger asChild className={styles.trigger}>
+				<Bell size="24" />
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className={styles.overlay} />

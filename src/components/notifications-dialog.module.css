@@ -6,6 +6,12 @@
   background: rgba(0, 0, 0, 0.75)
 }
 
+.trigger {
+  color: var(--white);
+  background: transparent;
+  cursor: pointer;
+}
+
 .content {
   width: 32rem;
   border-radius: 8px;

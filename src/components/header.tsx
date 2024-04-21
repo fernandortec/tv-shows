@@ -1,10 +1,10 @@
 import styles from "./header.module.css";
 import logo from "/assets/tv-white.svg";
 
-import { Navbar } from "./navbar";
-import { Bell, Search } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { NotificationsDialog } from "@/components/notifications-dialog";
+import { Link } from "@tanstack/react-router";
+import { Search } from "lucide-react";
+import { Navbar } from "./navbar";
 
 export function Header(): JSX.Element {
 	return (
@@ -17,7 +17,7 @@ export function Header(): JSX.Element {
 			<Navbar />
 
 			<div className={styles.actions}>
-				<Search size="22" />
+				<Search size="24" />
 
 				<NotificationsDialog />
 			</div>
