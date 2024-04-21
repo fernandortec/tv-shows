@@ -4,11 +4,10 @@ import { genres as availableGenders } from "@/helpers/available-genres";
 import { Button } from "@/components/button";
 import { paginate } from "@/helpers/paginate";
 import {
-	ArrowLeft,
 	ChevronLeft,
 	ChevronRight,
 	ChevronsLeft,
-	ChevronsRight,
+	ChevronsRight
 } from "lucide-react";
 import styles from "./-genres-section.module.css";
 

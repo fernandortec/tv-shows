@@ -4,9 +4,9 @@
   align-items: center;
 
   height: 4.75rem;
-  gap: 2rem;
   list-style: none;
-
+  gap: 0.5rem;
+  
   padding: 0.875rem;
   background: var(--primary-700);
 
@@ -19,11 +19,12 @@
   border-radius: 8px;
 
 }
+
 .navLink[data-current="true"] {
   background: var(--primary-500);
 }
+
 .navLink:hover {
   background: var(--primary-500);
   transition: background-color 0.4s;
 }
-
