@@ -1,0 +1,29 @@
+.search {
+  display: flex;
+  align-items: start;
+
+  gap: 0.5rem;
+}
+
+.searchInput {
+  width: 0px;
+  height: 34px;
+  box-shadow: none;
+  background: transparent;
+  color: #fff;
+  border: 1px solid transparent;
+  outline: none;
+  padding-left: 35px;
+  font-size: 16px;
+  transition: 0.3s ease all;
+  border-radius: 4px;
+}
+
+.toggle {
+  width: 240px;
+  border-color: #fff;
+}
+
+.searchIcon {
+  cursor: pointer;
+}
