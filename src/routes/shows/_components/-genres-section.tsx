@@ -1,4 +1,4 @@
-import { ActionCard } from "@/components/action-card";
+import { ActionCard } from "@/routes/shows/_components/-action-card";
 import { genres as availableGenders } from "@/helpers/available-genres";
 
 import { Button } from "@/components/button";

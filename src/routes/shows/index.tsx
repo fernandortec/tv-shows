@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { getAllShows } from "@/api/get-all-shows";
 import { Button } from "@/components/button";
-import { ShowCard } from "@/components/show-card";
+import { ShowCard } from "@/routes/shows/_components/-show-card";
 import { GenresSection } from "@/routes/shows/_components/-genres-section";
 import { Plus, ThumbsUp, Volume2Icon } from "lucide-react";
 import styles from "./index.module.css";

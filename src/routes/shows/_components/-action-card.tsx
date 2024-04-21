@@ -1,5 +1,5 @@
 import { genresMap } from "@/helpers/available-genres";
-import styles from "./action-card.module.css";
+import styles from "./-action-card.module.css";
 import actionCover from "/assets/action-genre-cover.png";
 import { ArrowRight } from "lucide-react";
 

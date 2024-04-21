@@ -1,4 +1,4 @@
-import styles from "./show-card.module.css";
+import styles from "./-show-card.module.css";
 
 export function ShowCard(): JSX.Element {
 	return (
