@@ -18,14 +18,10 @@ function ShowsPage(): JSX.Element {
 	return (
 		<main className={styles.main}>
 			<div className={styles.imageRows}>
-				<header className={styles.fadeOutFromTop}>
-					<img alt="" src={homeRowOne} />
-				</header>
+				<img alt="" src={homeRowOne} />
 				<img alt="" src={homeRowThree} />
 				<img alt="" src={homeRowTwo} />
-				<header className={styles.fadeOutFromBottom}>
-					<img alt="" src={homeRowFour} />
-				</header>
+				<img alt="" src={homeRowFour} />
 			</div>
 
 			<section className={styles.infoSection}>
@@ -35,10 +31,11 @@ function ShowsPage(): JSX.Element {
 				<p>
 					TvShows é a melhor experiência de streaming para assistir aos seus
 					filmes e programas favoritos sob demanda, a qualquer hora e em
-					qualquer lugar. Com o TvShows, você pode desfrutar de uma ampla
+					qualquer lugar.
+					Com o TvShows, você pode desfrutar de uma ampla
 					variedade de conteúdos, incluindo os últimos sucessos de bilheteria,
-					filmes clássicos, programas de TV populares e muito mais. Você também
-					pode criar suas próprias listas de reprodução, para encontrar
+					filmes clássicos, programas de TV populares e muito mais.
+					Você também pode criar suas próprias listas de reprodução, para encontrar
 					facilmente conteúdo
 				</p>
 
