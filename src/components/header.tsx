@@ -4,6 +4,7 @@ import logo from "/assets/tv-white.svg";
 import { Navbar } from "./navbar";
 import { Bell, Search } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { NotificationsDialog } from "@/components/notifications-dialog";
 
 export function Header(): JSX.Element {
 	return (
@@ -17,7 +18,8 @@ export function Header(): JSX.Element {
 
 			<div className={styles.actions}>
 				<Search size="22" />
-				<Bell size="22" />
+
+				<NotificationsDialog />
 			</div>
 		</header>
 	);
