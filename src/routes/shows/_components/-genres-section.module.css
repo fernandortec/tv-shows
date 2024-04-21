@@ -2,7 +2,34 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
 
   width: 100%;
+}
+
+.actionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actionsHeader div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.actionsHeader div h4 {
+  font-size: 1.5rem;
+  text-align: center;
+
+  margin: 1.5rem 1rem 0px 1rem;
+}
+
+.actionsHeader button {
+  background-color: var(--primary-500);
+}
+
+.actionsHeader button:hover {
+  background-color: var(--primary-300);
 }

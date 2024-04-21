@@ -1,5 +1,5 @@
 import { resolve } from "node:path";
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react-swc";
 import { TanStackRouterVite } from "@tanstack/router-vite-plugin";
 
@@ -16,5 +16,10 @@ export default defineConfig({
 		alias: {
 			"@": resolve(__dirname, "./src"),
 		},
+	},
+	test: {
+		globals: true,
+		environment: "happy-dom",
+		setupFiles: ["./src/tests/setup.ts"],
 	},
 });
