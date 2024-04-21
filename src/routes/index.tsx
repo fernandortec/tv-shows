@@ -31,15 +31,16 @@ function ShowsPage(): JSX.Element {
 				<p>
 					TvShows é a melhor experiência de streaming para assistir aos seus
 					filmes e programas favoritos sob demanda, a qualquer hora e em
-					qualquer lugar.
-					Com o TvShows, você pode desfrutar de uma ampla
+					qualquer lugar. Com o TvShows, você pode desfrutar de uma ampla
 					variedade de conteúdos, incluindo os últimos sucessos de bilheteria,
-					filmes clássicos, programas de TV populares e muito mais.
-					Você também pode criar suas próprias listas de reprodução, para encontrar
+					filmes clássicos, programas de TV populares e muito mais. Você também
+					pode criar suas próprias listas de reprodução, para encontrar
 					facilmente conteúdo
 				</p>
 
-				<Button variant="play-now">Assista agora</Button>
+				<Link to="/shows">
+					<Button variant="play-now">Assista agora</Button>
+				</Link>
 			</section>
 		</main>
 	);

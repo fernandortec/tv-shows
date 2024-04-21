@@ -85,7 +85,7 @@ button {
   margin-top: 4rem;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 960px) {
   .centerLogo {
     width: 20rem;
     opacity: 0.2;

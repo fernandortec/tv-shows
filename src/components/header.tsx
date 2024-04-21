@@ -8,9 +8,6 @@ import { Link } from "@tanstack/react-router";
 import { Navbar } from "./navbar";
 
 export function Header(): JSX.Element {
-	const isDeviceMobile =
-		Math.min(window.screen.width, window.screen.height) < 768;
-
 	return (
 		<header className={styles.header}>
 			<Link to="/" className={styles.logo}>
@@ -18,17 +15,13 @@ export function Header(): JSX.Element {
 				<p>TvShows</p>
 			</Link>
 
-			{!isDeviceMobile ? (
-				<>
-					<Navbar />
-					<div className={styles.actions}>
-						<SearchInput />
-						<NotificationsDialog />
-					</div>
-				</>
-			) : (
-				<HamburguerMenuDialog />
-			)}
+			<Navbar />
+			<div className={styles.actions}>
+				<SearchInput />
+				<NotificationsDialog />
+			</div>
+
+			<HamburguerMenuDialog />
 		</header>
 	);
 }

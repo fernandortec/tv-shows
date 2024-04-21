@@ -60,3 +60,9 @@ body main {
   background-color: #3b3b40;
 }
 
+@media(max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+
+}

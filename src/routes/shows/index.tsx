@@ -32,23 +32,25 @@ function ShowsPage(): JSX.Element {
 					<h3>{mainShow?.name}</h3>
 
 					{mainShow?.summary && (
-						// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+						// biome-ignore lint/security/noDangerouslySetInnerHtml:
 						<div dangerouslySetInnerHTML={{ __html: mainShow?.summary }} />
 					)}
 
-					<div className={styles.actions}>
+					<footer className={styles.actions}>
 						<Button variant="play-now">Ver agora</Button>
-						<Button variant="icon-only">
-							<Plus />
-						</Button>
-						<Button variant="icon-only">
-							<ThumbsUp />
-						</Button>
+						<div>
+							<Button variant="icon-only">
+								<Plus />
+							</Button>
+							<Button variant="icon-only">
+								<ThumbsUp />
+							</Button>
 
-						<Button variant="icon-only">
-							<Volume2Icon />
-						</Button>
-					</div>
+							<Button variant="icon-only">
+								<Volume2Icon />
+							</Button>
+						</div>
+					</footer>
 				</div>
 			</div>
 

@@ -12,6 +12,7 @@
   z-index: 10;
   border-radius: 4px;
   border-style: none;
+
 }
 
 .mainImageContainer::after {
@@ -19,7 +20,7 @@
   background: linear-gradient(to top, var(--primary-700), transparent);
   position: absolute;
   height: 100%;
-  width: 100vw;
+  width: 80vw;
   bottom: 0;
   left: 0;
 
@@ -31,7 +32,7 @@
   background: linear-gradient(to bottom, var(--primary-700), transparent);
   position: absolute;
   height: 100%;
-  width: 100vw;
+  width: 80vw;
   top: 0;
   left: 0;
 
@@ -62,7 +63,11 @@
 .about p {
   max-width: 1200px;
   font-size: 1.125rem;
-  color: var(--grey-500);
+  color: var(--white);
+  opacity: 0.67;
+
+
+  width: 80%;
 }
 
 .actions {
@@ -71,6 +76,14 @@
   display: flex;
   align-items: center;
   width: fit-content;
+
+  gap: 1.25rem;
+}
+
+.actions div {
+  display: flex;
+  align-items: center;
+  justify-items: center;
 
   gap: 1.25rem;
 }
@@ -94,4 +107,39 @@
   margin-top: 3rem;
 
   gap: 1.275rem;
+}
+
+
+@media(max-width: 768px) {
+  .about h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .about p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-align: start;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions div {
+    gap: 0.5rem;
+  }
+
+  .cardsSection {
+    padding: 0px;
+  }
+
+  .mainImageContainer img {
+    max-width: 80vw;
+  }
 }
