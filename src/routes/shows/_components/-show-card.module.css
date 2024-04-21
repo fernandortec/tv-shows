@@ -1,7 +1,10 @@
 .card {
-  height: 20rem;
-  width: 14rem;
-
-  border-radius: 8px;
-  background: var(--white);
+  flex-shrink: 0;
+  width: 18.75rem;
+  height: 12.5rem;
+  border-radius: 0.625rem;
+  margin-left: 0.625rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

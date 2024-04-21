@@ -58,9 +58,13 @@ function ShowsPage(): JSX.Element {
 				<Button variant="primary">Séries</Button>
 				<GenresSection />
 
+
 				<div className={styles.allShowsSection}>
 					{allShows?.map((show) => (
-						<ShowCard key={show.id} />
+						<ShowCard
+							key={show.id}
+							style={{ backgroundImage: `url(${show.image.medium})` }}
+						/>
 					))}
 				</div>
 			</section>

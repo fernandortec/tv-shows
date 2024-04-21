@@ -19,6 +19,8 @@
 }
 
 .actionCard footer {
+  margin-top: 0.5;
+
   display: flex;
   justify-content: space-between;
 

@@ -20,7 +20,7 @@
   background: linear-gradient(to top, var(--primary-700), transparent);
   position: absolute;
   height: 100%;
-  width: 80vw;
+  width: 100%;
   bottom: 0;
   left: 0;
 
@@ -32,7 +32,7 @@
   background: linear-gradient(to bottom, var(--primary-700), transparent);
   position: absolute;
   height: 100%;
-  width: 80vw;
+  width: 100%;
   top: 0;
   left: 0;
 
@@ -128,18 +128,17 @@
   }
 
   .actions {
+    margin-top: 4rem;
     flex-direction: column;
   }
+
 
   .actions div {
     gap: 0.5rem;
   }
 
   .cardsSection {
-    padding: 0px;
+    padding: 0px 1rem;
   }
 
-  .mainImageContainer img {
-    max-width: 80vw;
-  }
 }

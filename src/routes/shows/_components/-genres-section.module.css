@@ -1,7 +1,10 @@
 .genresSection {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+
+  overflow-x: scroll;
+
   gap: 1rem;
+
   margin-top: 3rem;
 
   width: 100%;
@@ -32,4 +35,26 @@
 
 .actionsHeader button:hover {
   background-color: var(--primary-300);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 3.5rem;
+
+  width: 100%;
+}
+
+.progress {
+  margin-top: 1.5rem;
+  width: 20% !important;
+}
+
+
+@media(max-width: 768px) {
+  .progress {
+    width: 50% !important;
+  }
 }

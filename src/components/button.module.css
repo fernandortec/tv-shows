@@ -5,7 +5,6 @@ button {
   gap: 8px;
   border: none;
 
-
   border-radius: 6px;
 }
 
@@ -28,6 +27,7 @@ button:hover {
 .iconButton {
   height: 3.5rem;
   width: 3.5rem;
+
   padding: 0px;
 
   display: flex;
