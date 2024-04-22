@@ -6,6 +6,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Plus, ThumbsUp, Volume2Icon, X } from "lucide-react";
 import type { ReactNode } from "react";
 import styles from "./-show-details-dialog.module.css";
+import { ShowInfo } from "@/routes/shows/_components/-show-info";
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;
@@ -58,13 +59,17 @@ export function ShowDetailsDialog({
 							</footer>
 						</div>
 					</div>
-					<section className={styles.episodesSection}>
-						<header>
-							<h5>Episódios e temporadas</h5>
-							<SelectSeasons />
-						</header>
+					<section className={styles.episodesAndInfoSection}>
+						<div className={styles.episodesSection}>
+							<header>
+								<h5>Episódios e temporadas</h5>
+								<SelectSeasons />
+							</header>
 
-						<Episodes />
+							<Episodes />
+						</div>
+
+						<ShowInfo />
 					</section>
 				</Dialog.Content>
 			</Dialog.Portal>

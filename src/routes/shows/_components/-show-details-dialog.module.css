@@ -91,11 +91,20 @@
   gap: 1.25rem;
 }
 
+.episodesAndInfoSection {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1.25rem;
+
+
+  margin-top: 6rem;
+}
+
 .episodesSection {
+  grid-column: span 5;
   padding: 3.125rem;
   z-index: 210;
 
-  margin-top: 6rem;
 
   background: var(--primary-500);
 }

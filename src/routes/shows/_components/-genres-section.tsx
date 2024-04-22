@@ -21,7 +21,7 @@ export function GenresSection(): JSX.Element {
 		const container = containerRef.current;
 
 		const scrollableWidth = container.scrollWidth - container.clientWidth;
-		const scrolledPercentage = Math.floor(
+		const scrolledPercentage = Math.ceil(
 			(newScrollPosition / (scrollableWidth || 1)) * 100,
 		);
 

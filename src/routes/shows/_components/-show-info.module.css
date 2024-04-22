@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  background-color: var(--primary-500);
+
+  padding: 3rem;
+  grid-column: span 2;
+}
+
+.label {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--grey-500);
+
+  display: flex;
+  align-items: center;
+}
+
+.label svg {
+  margin-right: 0.5rem;
+}
+
+.paragraphData {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.badge {
+  margin-top: 0.5rem;
+
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  background-color: var(--primary-700);
+  color: var(--white);
+
+  border-radius: 6px;
+  border: 1px solid var(--primary-300);
+}
+
+.badgeWrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  column-gap: 0.75rem;
+}
+
+.personContainer {
+  margin-top: 0.5rem;
+  padding: 0.875rem;
+  background-color: var(--primary-700);
+
+  border-radius: 8px;
+  border: 1px solid var(--primary-300);
+
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.personContainer img {
+  width: 3.75rem;
+  height: 3.75rem;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+}
+
+.personContainer div p {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.personContainer div span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--grey-500);
+}
+
+.rating {
+  margin-top: 0.5rem;
+  padding: 1rem;
+
+  background-color: var(--primary-700);
+  color: var(--white);
+
+  border-radius: 6px;
+  border: 1px solid var(--primary-300);
+}
+
+.rating p {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.rating svg {
+  margin-top: 0.5rem;
+
+  fill: var(--secondary-500);
+  color: var(--secondary-500);
+}
+
+.rating div {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
