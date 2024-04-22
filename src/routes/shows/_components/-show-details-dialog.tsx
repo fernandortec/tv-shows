@@ -1,9 +1,11 @@
-import * as Dialog from "@radix-ui/react-dialog";
-import type { ReactNode } from "react";
-import styles from "./-show-details-dialog.module.css";
-import { Plus, ThumbsUp, Volume2Icon, X } from "lucide-react";
 import type { Show } from "@/api/show-schema";
 import { Button } from "@/components/button";
+import { Episodes } from "@/routes/shows/_components/-episodes";
+import { SelectSeasons } from "@/routes/shows/_components/-select-seasons";
+import * as Dialog from "@radix-ui/react-dialog";
+import { Plus, ThumbsUp, Volume2Icon, X } from "lucide-react";
+import type { ReactNode } from "react";
+import styles from "./-show-details-dialog.module.css";
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;
@@ -21,15 +23,18 @@ export function ShowDetailsDialog({
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="overlay" />
-				<Dialog.Content className={`${styles.content} fadeOutFromTop fadeOutFromBottom`}>
+				<Dialog.Content className={`${styles.content}`}>
 					<Dialog.Close className="close">
 						<X size={24} />
 					</Dialog.Close>
+
 					<div className={styles.mainImageContainer}>
-						<img alt="" src={show?.image.original} />
+						<div className="fadeOutFromTop fadeOutFromBottom">
+							<img alt="" src={show?.image.original} />
+						</div>
 
 						<div className={styles.about}>
-							<h3>{show?.name}</h3>
+							<h4>{show?.name}</h4>
 
 							{show?.summary && (
 								// biome-ignore lint/security/noDangerouslySetInnerHtml:
@@ -52,11 +57,15 @@ export function ShowDetailsDialog({
 								</div>
 							</footer>
 						</div>
-
-						<section className={styles.episodesSection}>
-							<p>Seasons and episodes</p>
-						</section>
 					</div>
+					<section className={styles.episodesSection}>
+						<header>
+							<h5>Episódios e temporadas</h5>
+							<SelectSeasons />
+						</header>
+
+						<Episodes />
+					</section>
 				</Dialog.Content>
 			</Dialog.Portal>
 		</Dialog.Root>

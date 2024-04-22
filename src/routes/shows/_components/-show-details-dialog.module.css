@@ -1,8 +1,10 @@
 .content {
   width: 100vw;
   height: 100vh;
+  overflow-y: auto;
+
   padding: 3rem;
-  background: var(--primary-500);
+  background: var(--primary-700);
 
   position: fixed;
 
@@ -19,12 +21,17 @@
 }
 
 .trigger img {
+  position: relative;
   width: 100%;
 }
 
 .mainImageContainer {
   position: relative;
 
+}
+
+.mainImageContainer div:first-child {
+  position: relative;
 }
 
 .mainImageContainer img {
@@ -52,7 +59,7 @@
   margin: auto;
 }
 
-.about h3 {
+.about h4 {
   font-size: 2.5rem;
   font-weight: bold;
 }
@@ -86,6 +93,21 @@
 
 .episodesSection {
   padding: 3.125rem;
-
   z-index: 210;
+
+  margin-top: 6rem;
+
+  background: var(--primary-500);
+}
+
+.episodesSection header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+}
+
+.episodesSection h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
