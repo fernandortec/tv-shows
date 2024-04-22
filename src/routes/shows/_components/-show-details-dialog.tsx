@@ -1,12 +1,12 @@
 import type { Show } from "@/api/show-schema";
 import { Button } from "@/components/button";
 import { Episodes } from "@/routes/shows/_components/-episodes";
-import { SelectSeasons } from "@/routes/shows/_components/-select-seasons";
+import { SelectSeason } from "@/routes/shows/_components/-select-seasons";
+import { ShowInfo } from "@/routes/shows/_components/-show-info";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Plus, ThumbsUp, Volume2Icon, X } from "lucide-react";
 import type { ReactNode } from "react";
 import styles from "./-show-details-dialog.module.css";
-import { ShowInfo } from "@/routes/shows/_components/-show-info";
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;
@@ -62,8 +62,7 @@ export function ShowDetailsDialog({
 					<section className={styles.episodesAndInfoSection}>
 						<div className={styles.episodesSection}>
 							<header>
-								<h5>Episódios e temporadas</h5>
-								<SelectSeasons />
+								<SelectSeason showId={show.id} />
 							</header>
 
 							<Episodes />

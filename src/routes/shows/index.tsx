@@ -1,7 +1,7 @@
 import { getMainShow } from "@/api/get-main-show";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { getAllShows } from "@/api/get-all-shows";
+import { findAllShows } from "@/api/find-all-shows";
 import { Button } from "@/components/button";
 import { ShowCard } from "@/routes/shows/_components/-show-card";
 import { GenresSection } from "@/routes/shows/_components/-genres-section";
@@ -20,7 +20,7 @@ function ShowsPage(): JSX.Element {
 
 	const { data: allShows } = useQuery({
 		queryKey: ["shows"],
-		queryFn: getAllShows,
+		queryFn: findAllShows,
 	});
 
 	return (
