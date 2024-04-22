@@ -32,29 +32,10 @@
   position: relative;
 }
 
-.fadeOutFromTop::after {
-  content: '';
-  background: linear-gradient(to bottom, var(--primary-700), transparent);
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
 .fadeOutFromBottom {
   position: relative;
 }
 
-.fadeOutFromBottom::after {
-  content: '';
-  background: linear-gradient(to top, var(--primary-700), transparent);
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
 
 .centerLogo {
   width: 30rem;

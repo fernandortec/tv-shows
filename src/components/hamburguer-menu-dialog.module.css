@@ -1,13 +1,3 @@
-.overlay {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-
-  z-index: 10;
-}
-
 .trigger {
   color: var(--white);
   background: transparent;
@@ -48,52 +38,9 @@
   font-size: 1.6rem;
   font-weight: bold;
 }
-
-.close {
-  position: absolute;
-
-  background: transparent;
-  border: 0;
-
-  top: -1rem;
-  right: 1rem;
-
-  line-height: 0;
-  cursor: pointer;
-  color: var(--white);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-.overlay[data-state='open'],
-.content[data-state='open'] {
-  animation: fadeIn 300ms ease-out;
-}
-
-.overlay[data-state='closed'],
-.content[data-state='closed'] {
-  animation: fadeOut 300ms ease-in;
-}
-
+  
 @media(min-width: 960px) {
+
   .trigger,
   .content {
     display: none;

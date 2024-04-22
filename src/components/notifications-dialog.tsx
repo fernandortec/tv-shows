@@ -9,18 +9,18 @@ export function NotificationsDialog(): JSX.Element {
 				<Bell size="24" />
 			</Dialog.Trigger>
 			<Dialog.Portal>
-				<Dialog.Overlay className={styles.overlay} />
+				<Dialog.Overlay className="overlay" />
 				<Dialog.Content className={styles.content}>
-					<Dialog.Title>Notificações</Dialog.Title>
-					<Dialog.Description>Veja suas notificações</Dialog.Description>
-					<Dialog.Close className={styles.close}>
+					<Dialog.Close className="close">
 						<X size={24} />
 					</Dialog.Close>
+					<Dialog.Title>Notificações</Dialog.Title>
+					<Dialog.Description>Veja suas notificações</Dialog.Description>
 
 					<div className={styles.notification}>
 						<Check />
 						<p>Não há nenhuma notificação para você</p>
-            <span />
+						<span />
 					</div>
 				</Dialog.Content>
 			</Dialog.Portal>

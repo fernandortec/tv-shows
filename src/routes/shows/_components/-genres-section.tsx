@@ -1,8 +1,7 @@
-import { genres as availableGenders } from "@/helpers/available-genres";
+import { genres } from "@/helpers/available-genres";
 
 import { Button } from "@/components/button";
 import { PaginationProgress } from "@/components/pagination-progress";
-import { paginate } from "@/helpers/paginate";
 import { ActionCard } from "@/routes/shows/_components/-action-card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState } from "react";
@@ -16,27 +15,24 @@ export function GenresSection(): JSX.Element {
 
 	function handleScroll(scrollAmount: number): void {
 		if (scrollAmount <= 0 || !containerRef.current) return;
-		if (scrollPercentage >= 100) return;
 
 		const newScrollPosition = scrollPosition + scrollAmount;
 
 		const container = containerRef.current;
 
 		const scrollableWidth = container.scrollWidth - container.clientWidth;
-		const scrolledPercentage =
-			(newScrollPosition / (scrollableWidth || 1)) * 100;
+		const scrolledPercentage = Math.floor(
+			(newScrollPosition / (scrollableWidth || 1)) * 100,
+		);
 
-		setScrollPercentage(scrolledPercentage);
+		const roundedPercentage = Math.round(scrolledPercentage / 5) * 5;
+		setScrollPercentage(roundedPercentage);
 
 		container.scrollLeft = newScrollPosition;
+
 		setScrollPosition(newScrollPosition);
 	}
 
-	const genres = paginate({
-		items: availableGenders,
-		pageNumber: 1,
-		pageSize: 50,
-	});
 
 	return (
 		<div>
@@ -45,7 +41,7 @@ export function GenresSection(): JSX.Element {
 			</header>
 
 			<div className={styles.genresSection} ref={containerRef}>
-				{genres.items.map((genre) => (
+				{genres.map((genre) => (
 					<ActionCard genre={String(genre)} key={String(genre)} />
 				))}
 			</div>

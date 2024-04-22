@@ -10,9 +10,9 @@ export function HamburguerMenuDialog(): JSX.Element {
 				<img src="/assets/hamburguer-menu.svg" alt="Hamburguer Menu Icon" />
 			</Dialog.Trigger>
 			<Dialog.Portal>
-				<Dialog.Overlay className={styles.overlay} />
+				<Dialog.Overlay className="overlay" />
 				<Dialog.Content className={styles.content}>
-					<Dialog.Close className={styles.close}>
+					<Dialog.Close className="close">
 						<X size={24} />
 					</Dialog.Close>
 					<ul className={styles.list}>

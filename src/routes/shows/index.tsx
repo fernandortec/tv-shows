@@ -25,7 +25,7 @@ function ShowsPage(): JSX.Element {
 
 	return (
 		<main>
-			<div className={styles.mainImageContainer}>
+			<div className={`${styles.mainImageContainer} fadeOutFromTop fadeOutFromBottom`}>
 				<img alt="" src={mainShow?.image.original} />
 
 				<div className={styles.about}>
@@ -64,6 +64,7 @@ function ShowsPage(): JSX.Element {
 						<ShowCard
 							key={show.id}
 							style={{ backgroundImage: `url(${show.image.medium})` }}
+							show={show}
 						/>
 					))}
 				</div>
