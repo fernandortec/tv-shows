@@ -3,22 +3,28 @@ import styles from "./pagination-progress.module.css";
 
 interface PaginationProgressProps {
 	className?: string;
-	progressClassName?:string
+	progressClassName?: string;
+	totalValue?: number;
+	currentValue?: number;
 }
 
 export function PaginationProgress({
 	className,
-	progressClassName
+	progressClassName,
+	currentValue,
+	totalValue,
 }: PaginationProgressProps): JSX.Element {
 	return (
 		<Progress.Root
 			className={`${styles.progressRoot} ${className}`}
-			value={100}
+			value={totalValue}
 		>
 			<Progress.Indicator
 				className={`${styles.progressIndicator} ${progressClassName}`}
-				style={{ transform: `translateX(-${100 - 89}%)` }}
-				/>
+				style={{
+					transform: `translateX(-${(totalValue ?? 0) - (currentValue ?? 0)}%)`,
+				}}
+			/>
 		</Progress.Root>
 	);
 }

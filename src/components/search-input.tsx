@@ -11,7 +11,6 @@ export function SearchInput(): JSX.Element {
 
 	// biome-ignore lint/suspicious/noExplicitAny: 
 	const handleDocumentClick = (e: any) => {
-		console.log(e);
 		if (!e.target.closest(`.${styles.search}`)) {
 			setIsInputOpen(false);
 		}

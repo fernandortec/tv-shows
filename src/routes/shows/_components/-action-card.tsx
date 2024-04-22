@@ -1,7 +1,7 @@
 import { genresMap } from "@/helpers/available-genres";
+import { ArrowRight } from "lucide-react";
 import styles from "./-action-card.module.css";
 import actionCover from "/assets/action-genre-cover.png";
-import { ArrowRight } from "lucide-react";
 
 interface ActionCardProps {
 	genre: string;

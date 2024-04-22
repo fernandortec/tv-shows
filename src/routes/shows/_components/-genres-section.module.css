@@ -2,12 +2,16 @@
   display: flex;
 
   overflow-x: scroll;
+  scroll-behavior: smooth;
 
   gap: 1rem;
-
   margin-top: 3rem;
-
   width: 100%;
+
+}
+
+.genresSection::-webkit-scrollbar {
+  display: none;
 }
 
 .actionsHeader {
@@ -46,6 +50,7 @@
 
   width: 100%;
 }
+
 
 .progress {
   margin-top: 1.5rem;
