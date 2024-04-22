@@ -1,23 +1,16 @@
-import {
-	Blocks,
-	Calendar,
-	Languages,
-	Star,
-	StarHalf,
-	StarOff,
-} from "lucide-react";
+import { Blocks, Calendar, Languages, Star, StarHalf } from "lucide-react";
 import styles from "./-show-info.module.css";
 
 export function ShowInfo(): JSX.Element {
-	const rating = 3.5
+	const rating = 3.5;
 
 	const renderStars = (): JSX.Element[] => {
 		const stars: JSX.Element[] = [];
 		for (let i = 1; i <= Math.ceil(rating); i++) {
 			if (i <= rating) {
-				stars.push(<Star />);
+				stars.push(<Star key={i} />);
 			} else if (i - 0.5 <= rating) {
-				stars.push(<StarHalf />);
+				stars.push(<StarHalf key={i} />);
 			}
 		}
 		return stars;

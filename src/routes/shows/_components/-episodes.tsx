@@ -1,37 +1,55 @@
+import { useQuery } from "@tanstack/react-query";
 import styles from "./-episodes.module.css";
+import { listAllEpisodes } from "@/api/list-episodes";
+import { useSeasonStore } from "@/store/season-store";
+import { addZeroToNumber } from "@/helpers/add-zero";
 
 export function Episodes(): JSX.Element {
+	const currentSeasonId = useSeasonStore((state) => state.currentSeasonId);
+	const currentSeasonNumber = useSeasonStore(
+		(state) => state.currentSeasonNumber,
+	);
+
+	const { data: episodes } = useQuery({
+		queryKey: ["shows", "episodes", currentSeasonId],
+		queryFn: () => listAllEpisodes(currentSeasonId ?? 0),
+		enabled: !!currentSeasonId,
+	});
+
 	return (
 		<div className={styles.container}>
 			<header>
 				<p>
-					Temporada 1<span> 9 episódios</span>
+					Temporada {currentSeasonNumber ?? 1}
+					<span> {episodes?.length} episódios</span>
 				</p>
 			</header>
 
 			<ul className={styles.episodesList}>
-				<li>
-					<hr />
-					<div className={styles.episodeContainer}>
-						<p className={styles.episodeNumber}>01</p>
-						<div className={styles.imageContainer}>
-							<div />
-							<img
-								src="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg"
-								alt=""
-							/>
+				{" "}
+				<hr />
+				{episodes?.map((episode) => (
+					<li key={episode.id}>
+						<div className={styles.episodeContainer}>
+							<p className={styles.episodeNumber}>
+								{addZeroToNumber(episode.number)}
+							</p>
+							<div className={styles.imageContainer}>
+								<div />
+								<img
+									src={episode?.image?.medium || episode?.image?.original}
+									alt=""
+								/>
+							</div>
+							<div className={styles.episodeAbout}>
+								<p>{episode.name}</p>
+								{/* biome-ignore lint/security/noDangerouslySetInnerHtml: */}
+								<div dangerouslySetInnerHTML={{ __html: episode.summary }} />
+							</div>
 						</div>
-						<div className={styles.episodeAbout}>
-							<p>Capítulo um, o desaparecimento de Will Byers</p>
-							<span>
-								On his way from a friend’s house, young Will sees something
-								terrifying . Nearby, a sinister secret lurks in the depths of a
-								government lab.
-							</span>
-						</div>
-					</div>
-					<hr />
-				</li>
+						<hr />
+					</li>
+				))}
 			</ul>
 		</div>
 	);

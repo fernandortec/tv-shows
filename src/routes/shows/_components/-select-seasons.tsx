@@ -1,36 +1,75 @@
 import { listAllSeasons } from "@/api/list-seasons";
+import { useSeasonStore } from "@/store/season-store";
 import { useQuery } from "@tanstack/react-query";
+import { ChevronDownIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 import styles from "./-select-seasons.module.css";
-import { ChevronDownIcon, ChevronsDownIcon } from "lucide-react";
 
 interface SelectSeasonProps {
 	showId: number;
 }
 
 export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
+	const [isActive, setIsActive] = useState<boolean>(false);
 
-	const { data: seasons } = useQuery({
-		queryKey: ["season", showId],
+	const changeCurrentSeasonId = useSeasonStore(
+		(state) => state.changeCurrentSeasonId,
+	);
+	const changeCurrentSeasonNumber = useSeasonStore(
+		(state) => state.changeCurrentSeasonNumber,
+	);
+
+	const currentSeasonId = useSeasonStore((state) => state.currentSeasonId);
+
+	const { data: seasons, isSuccess } = useQuery({
+		queryKey: ["shows", "seasons", showId],
 		queryFn: () => listAllSeasons(showId),
 	});
+
+	useEffect(() => {
+		if (isSuccess) {
+			changeCurrentSeasonId(seasons[0].id);
+		}
+	}, [isSuccess, changeCurrentSeasonId, seasons?.[0].id]);
+
+	function changeVisibility(): void {
+		setIsActive((state) => !state);
+	}
+
+	function handleSelectSeason(seasonId: number, seasonNumber: number): void {
+		changeCurrentSeasonId(seasonId);
+		changeCurrentSeasonNumber(seasonNumber);
+	}
 
 	return (
 		<div className={styles.dropdown}>
 			<div className={styles.header}>
 				<h5>Episódios e temporadas</h5>
-				<button className={styles.dropdownButton} type="button">
+				<button
+					className={styles.dropdownButton}
+					type="button"
+					onClick={changeVisibility}
+				>
 					Escolha uma temporada
 					<ChevronDownIcon />
 				</button>
 			</div>
 
-			<div className={styles.dropdownContent}>
-				{seasons?.map((season, idx) => (
-					<div key={season.id} className={styles.dropdownItem}>
-						<p>Temporada {idx + 1}</p>
-					</div>
-				))}
-			</div>
+			{isActive && (
+				<div className={styles.dropdownContent}>
+					{seasons?.map((season, idx) => (
+						<button
+							type="submit"
+							key={season.id}
+							className={styles.dropdownItem}
+							data-active={currentSeasonId === season.id}
+							onClick={() => handleSelectSeason(season.id, season.number)}
+						>
+							<p>Temporada {idx + 1}</p>
+						</button>
+					))}
+				</div>
+			)}
 		</div>
 	);
 }
