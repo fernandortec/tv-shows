@@ -42,6 +42,7 @@ export function SearchInput(): JSX.Element {
 					placeholder="Nomes de séries"
 					value={inputValue}
 					onChange={(e) => setInputValue(e.target.value)}
+					onClick={e => isInputOpen && handleFilterByName(e)}
 				/>
 			</form>
 			<Search size="24" className={styles.searchIcon} onClick={toggleInput} />
