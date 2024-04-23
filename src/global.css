@@ -97,7 +97,7 @@ a {
 }
 
 .close {
-  position: absolute;
+  position: fixed;
 
   background: transparent;
   border: 0;

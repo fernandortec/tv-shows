@@ -9,7 +9,7 @@ export async function findAllShows(
 	const data: Show[] = await response.json();
 
 	if (name) {
-		console.log(name, '<><><>')
+
 		const filteredByName = data.filter((show) =>
 			show.name.toLowerCase().includes(name.toLowerCase()),
 		);

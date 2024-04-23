@@ -32,11 +32,11 @@ function ShowsPage(): JSX.Element {
 	});
 
 	useEffect(() => {
-		if (!name) return;
+		if (!name && !genre) return;
 
 		const element = document.getElementById("shows-title");
 		element?.scrollIntoView();
-	}, [name]);
+	}, [name, genre]);
 
 	return (
 		<main>
@@ -72,6 +72,7 @@ function ShowsPage(): JSX.Element {
 			</div>
 
 			<section className={styles.cardsSection} id="cards">
+				<Button variant="primary">Séries</Button>
 				<GenresSection />
 
 				<div className={styles.headerSection}>
@@ -80,8 +81,15 @@ function ShowsPage(): JSX.Element {
 							Navegue entre as séries:{" "}
 						</p>
 						{!name && !genre && <span>Listando todas as séries</span>}
-						{name && <span>Listando séries com o nome {name} {genre && `e com o gênero ${genresMap[genre]}`}</span>}
-						{genre && <span>Listando séries com o gênero {genresMap[genre]}</span>}
+						{name && (
+							<span>
+								Listando séries com o nome {name}{" "}
+								{genre && `e com o gênero ${genresMap[genre]}`}
+							</span>
+						)}
+						{genre && (
+							<span>Listando séries com o gênero {genresMap[genre]}</span>
+						)}
 					</div>
 
 					<Link to="/shows">Remover filtros</Link>
