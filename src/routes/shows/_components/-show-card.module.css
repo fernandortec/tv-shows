@@ -22,3 +22,9 @@
 
   z-index: 20;
 }
+
+@media(max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}

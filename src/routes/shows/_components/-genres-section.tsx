@@ -14,7 +14,7 @@ export function GenresSection(): JSX.Element {
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	function handleScroll(scrollAmount: number): void {
-		if (scrollAmount <= 0 || !containerRef.current) return;
+		if (!containerRef.current) return;
 
 		const newScrollPosition = scrollPosition + scrollAmount;
 

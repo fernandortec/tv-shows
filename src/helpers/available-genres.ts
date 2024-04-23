@@ -29,7 +29,7 @@ export const genres = [
 	"western",
 ];
 
-export const genresMap = {
+export const genresMap: { [key: string]: string } = {
 	action: "Ação",
 	adult: "Adulto",
 	adventure: "Aventura",
@@ -58,4 +58,4 @@ export const genresMap = {
 	travel: "Viagem",
 	war: "Guerra",
 	western: "Ocidente",
-} as const;
+};

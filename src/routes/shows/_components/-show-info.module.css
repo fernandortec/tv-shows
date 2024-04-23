@@ -7,6 +7,8 @@
 
   padding: 3rem;
   grid-column: span 2;
+
+  height: 45rem;
 }
 
 .label {
@@ -107,4 +109,22 @@
   display: flex;
   align-items: center;
   gap: 2px;
+}
+
+.rating div p {
+  margin-left: 0.5rem;
+  margin-top: 8px
+}
+
+@media(max-width: 1400px) {
+  .container {
+    height: 50rem;
+  }
+}
+
+
+@media(max-width: 1000px) {
+  .container {
+    height: 42rem;
+  }
 }

@@ -20,6 +20,7 @@ export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 	);
 
 	const currentSeasonId = useSeasonStore((state) => state.currentSeasonId);
+	const currentSeasonNumber = useSeasonStore((state) => state.currentSeasonNumber);
 
 	const { data: seasons, isSuccess } = useQuery({
 		queryKey: ["shows", "seasons", showId],
@@ -50,7 +51,7 @@ export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 					type="button"
 					onClick={changeVisibility}
 				>
-					Escolha uma temporada
+					Temporada {currentSeasonNumber ?? 1}
 					<ChevronDownIcon />
 				</button>
 			</div>

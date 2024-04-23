@@ -120,3 +120,23 @@
   font-size: 1.5rem;
   font-weight: 600;
 }
+
+@media(max-width: 1400px) {
+  .episodesAndInfoSection {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .episodesSection {
+    grid-column: span 4;
+  }
+}
+
+@media(max-width: 1000px) {
+  .episodesAndInfoSection {
+    grid-template-columns: 1fr
+  }
+
+  .episodesSection {
+    grid-column: span 1;
+  }
+}

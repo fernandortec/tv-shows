@@ -34,8 +34,7 @@ export function Episodes(): JSX.Element {
 							<p className={styles.episodeNumber}>
 								{addZeroToNumber(episode.number)}
 							</p>
-							<div className={styles.imageContainer}>
-								<div />
+							<div className={`${styles.imageContainer} fadeOutFromBottom `}>
 								<img
 									src={episode?.image?.medium || episode?.image?.original}
 									alt=""

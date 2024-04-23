@@ -68,7 +68,7 @@ export function ShowDetailsDialog({
 							<Episodes />
 						</div>
 
-						<ShowInfo />
+						<ShowInfo show={show} />
 					</section>
 				</Dialog.Content>
 			</Dialog.Portal>

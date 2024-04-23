@@ -1,20 +1,23 @@
-import { Blocks, Calendar, Languages, Star, StarHalf } from "lucide-react";
+import { getShowCrew } from "@/api/get-show-crew";
+import type { Show } from "@/api/show-schema";
+import { genresMap } from "@/helpers/available-genres";
+import { languagesMap } from "@/helpers/languages-map";
+import { renderStars } from "@/helpers/render-stars";
+import { useQuery } from "@tanstack/react-query";
+import { Blocks, Calendar, Languages, Star } from "lucide-react";
 import styles from "./-show-info.module.css";
 
-export function ShowInfo(): JSX.Element {
-	const rating = 3.5;
+interface ShowInfoProps {
+	show: Show;
+}
 
-	const renderStars = (): JSX.Element[] => {
-		const stars: JSX.Element[] = [];
-		for (let i = 1; i <= Math.ceil(rating); i++) {
-			if (i <= rating) {
-				stars.push(<Star key={i} />);
-			} else if (i - 0.5 <= rating) {
-				stars.push(<StarHalf key={i} />);
-			}
-		}
-		return stars;
-	};
+export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
+	const { data: crew } = useQuery({
+		queryKey: ["shows", "crew"],
+		queryFn: () => getShowCrew(show.id),
+	});
+
+	const creator = crew?.find((person) => person.type === "Creator");
 
 	return (
 		<aside className={styles.container}>
@@ -23,7 +26,9 @@ export function ShowInfo(): JSX.Element {
 					<Calendar size={18} />
 					Data de lançamento
 				</span>
-				<p className={styles.paragraphData}>2022</p>
+				<p className={styles.paragraphData}>
+					{new Date(show.premiered).getFullYear()}
+				</p>
 			</header>
 
 			<div>
@@ -31,7 +36,7 @@ export function ShowInfo(): JSX.Element {
 					<Languages size={18} />
 					Linguagens
 				</span>
-				<p className={styles.badge}>Inglês</p>
+				<p className={styles.badge}>{languagesMap[show.language]}</p>
 			</div>
 
 			<div>
@@ -40,9 +45,11 @@ export function ShowInfo(): JSX.Element {
 					Gêneros
 				</span>
 				<div className={styles.badgeWrapper}>
-					<p className={styles.badge}>Teen TV Shows</p>
-					<p className={styles.badge}>Drama</p>
-					<p className={styles.badge}>Comédia</p>
+					{show.genres.map((genre) => (
+						<p key={genre} className={styles.badge}>
+							{genresMap[genre.toLowerCase()]}
+						</p>
+					))}
 				</div>
 			</div>
 
@@ -55,8 +62,8 @@ export function ShowInfo(): JSX.Element {
 					<div className={styles.rating}>
 						<p>Todas avaliações: </p>
 						<div>
-							{renderStars()}
-							<p>{rating}</p>
+							{renderStars(show.rating.average)}
+							<p>{show.rating.average}</p>
 						</div>
 					</div>
 				</div>
@@ -65,13 +72,9 @@ export function ShowInfo(): JSX.Element {
 			<div>
 				<span className={styles.label}>Criador</span>
 				<div className={styles.personContainer}>
-					<img
-						src="https://static.tvmaze.com/uploads/images/medium_portrait/29/72809.jpg"
-						alt=""
-					/>
+					<img src={creator?.person.image.medium} alt="" />
 					<div>
-						<p>Vince Gilligan</p>
-						<span>United States</span>
+						<p>{creator?.person.name}</p>
 					</div>
 				</div>
 			</div>
