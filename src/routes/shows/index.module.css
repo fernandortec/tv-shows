@@ -86,12 +86,38 @@
   gap: 1.275rem;
 }
 
-.showsTitle  {
+.showsTitle {
   font-size: 2rem;
   font-weight: 600;
 
   margin-top: 6rem;
   margin-bottom: 4rem;
+}
+
+.headerSection {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.headerSection span {
+  color: var(--grey-500);
+}
+
+.headerSection a {
+
+  text-decoration: underline;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+}
+
+.error a {
+  color: var(--secondary-500);
+  margin-left: 0.5rem;
 }
 
 

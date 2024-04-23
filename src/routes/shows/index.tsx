@@ -5,10 +5,11 @@ import { GenresSection } from "@/routes/shows/_components/-genres-section";
 import { ShowCard } from "@/routes/shows/_components/-show-card";
 import { type SearchShowsSchema, searchShowsSchema } from "@/schemas/shows";
 import { useQuery } from "@tanstack/react-query";
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { Plus, ThumbsUp, Volume2Icon } from "lucide-react";
 import styles from "./index.module.css";
 import { useEffect } from "react";
+import { genresMap } from "@/helpers/available-genres";
 
 export const Route = createFileRoute("/shows/")({
 	component: () => <ShowsPage />,
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/shows/")({
 });
 
 function ShowsPage(): JSX.Element {
-	const { name } = Route.useSearch();
+	const { name, genre } = Route.useSearch();
 
 	const { data: mainShow } = useQuery({
 		queryKey: ["shows", "main"],
@@ -26,8 +27,8 @@ function ShowsPage(): JSX.Element {
 	});
 
 	const { data: allShows } = useQuery({
-		queryKey: ["shows"],
-		queryFn: findAllShows,
+		queryKey: ["shows", name, genre],
+		queryFn: () => findAllShows(name, genre),
 	});
 
 	useEffect(() => {
@@ -74,13 +75,27 @@ function ShowsPage(): JSX.Element {
 				<Button variant="primary">Séries</Button>
 				<GenresSection />
 
-				<p className={styles.showsTitle} id="shows-title">Navegue entre as séries: </p>
+				<div className={styles.headerSection}>
+					<div>
+						<p className={styles.showsTitle} id="shows-title">
+							Navegue entre as séries:{" "}
+						</p>
+						{!name && !genre && <span>Listando todas as séries</span>}
+						{name && <span>Listando séries com o nome {name} {genre && `e com o gênero ${genresMap[genre]}`}</span>}
+						{genre && <span>Listando séries com o gênero {genresMap[genre]}</span>}
+					</div>
+
+					<Link to="/shows">Remover filtros</Link>
+				</div>
+				{allShows?.length === 0 && (
+					<p className={styles.error}>
+						Não foi encontrado nenhuma série com este nome/gênero{" "}
+						<Link to="/shows">Remover filtros</Link>
+					</p>
+				)}
 				<div className={styles.allShowsSection}>
 					{allShows?.map((show) => (
-						<ShowCard
-							key={show.id}
-							show={show}
-						/>
+						<ShowCard key={show.id} show={show} />
 					))}
 				</div>
 			</section>
