@@ -50,10 +50,12 @@ export function Episodes(): JSX.Element {
 							<div className={styles.episodeAbout}>
 								<header>
 									<p>{episode.name}</p>
-									<div>
-										<Clock />
-										<span>{episode.airtime.split(":")[0]} min</span>
-									</div>
+									{episode.airtime && (
+										<div>
+											<Clock />
+											<span>{episode.airtime.split(":")[0]} min</span>
+										</div>
+									)}
 								</header>
 								<div
 									/* biome-ignore lint/security/noDangerouslySetInnerHtml: */

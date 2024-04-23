@@ -83,7 +83,7 @@ export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
 				<div className={styles.personContainer}>
 					<img src={imgSrc} alt="" onError={onError} />
 					<div>
-						<p>{creator?.person.name}</p>
+						<p>{creator?.person.name ?? "Não mencionado"}</p>
 					</div>
 				</div>
 			</div>

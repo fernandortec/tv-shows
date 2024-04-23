@@ -7,6 +7,7 @@ import { ArrowLeft, Plus, ThumbsUp, Volume2Icon, X } from "lucide-react";
 import type { ReactNode } from "react";
 import styles from "./-show-details-dialog.module.css";
 import type { Show } from "@/schemas/shows";
+import { useSeasonStore } from "@/store/season-store";
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;
@@ -17,6 +18,18 @@ export function ShowDetailsDialog({
 	children,
 	show,
 }: ShowDetailsDialogProps): JSX.Element {
+	const changeCurrentSeasonId = useSeasonStore(
+		(state) => state.changeCurrentSeasonId,
+	);
+	const changeCurrentSeasonNumber = useSeasonStore(
+		(state) => state.changeCurrentSeasonNumber,
+	);
+
+	function handleCloseDialog(): void {
+		changeCurrentSeasonId(null)
+		changeCurrentSeasonNumber(null)
+	}
+		
 	return (
 		<Dialog.Root>
 			<Dialog.Trigger asChild className={styles.trigger}>
@@ -26,11 +39,14 @@ export function ShowDetailsDialog({
 				<Dialog.Overlay className="overlay" />
 				<Dialog.Content className={`${styles.content}`}>
 					<Dialog.Close className="close">
-						<X size={24} />
+						<X size={24} onClick={handleCloseDialog} />
 					</Dialog.Close>
 
 					<Dialog.Close asChild>
-						<ArrowLeft style={{ cursor: "pointer" }} />
+						<ArrowLeft
+							style={{ cursor: "pointer" }}
+							onClick={handleCloseDialog}
+						/>
 					</Dialog.Close>
 
 					<div className={styles.mainImageContainer}>
