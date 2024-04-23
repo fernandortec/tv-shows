@@ -2,12 +2,11 @@ import { getShowCrew } from "@/api/get-show-crew";
 
 import { genresMap } from "@/helpers/available-genres";
 import { languagesMap } from "@/helpers/languages-map";
-import { renderStars } from "@/helpers/render-stars";
+import type { Show } from "@/schemas/shows";
 import { useQuery } from "@tanstack/react-query";
 import { Blocks, Calendar, Languages, Star, StarIcon } from "lucide-react";
-import styles from "./-show-info.module.css";
-import type { Show } from "@/schemas/shows";
 import { useState } from "react";
+import styles from "./-show-info.module.css";
 
 interface ShowInfoProps {
 	show: Show;
@@ -82,7 +81,7 @@ export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
 			<div>
 				<span className={styles.label}>Criador</span>
 				<div className={styles.personContainer}>
-					<img src={imgSrc} alt="" />
+					<img src={imgSrc} alt="" onError={onError} />
 					<div>
 						<p>{creator?.person.name}</p>
 					</div>
