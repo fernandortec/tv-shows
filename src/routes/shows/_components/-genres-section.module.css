@@ -1,7 +1,7 @@
 .genresSection {
   display: flex;
 
-  overflow-x: scroll;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 
   gap: 1rem;

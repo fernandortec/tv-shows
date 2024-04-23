@@ -75,6 +75,7 @@
 
 .cardsSection button {
   margin-bottom: 2rem;
+  font-weight: bold;
 }
 
 .allShowsSection {
@@ -83,6 +84,14 @@
   margin-top: 3rem;
 
   gap: 1.275rem;
+}
+
+.showsTitle  {
+  font-size: 2rem;
+  font-weight: 600;
+
+  margin-top: 6rem;
+  margin-bottom: 4rem;
 }
 
 

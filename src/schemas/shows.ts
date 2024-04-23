@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 export interface Show {
 	id: number;
 	url: string;
@@ -52,3 +54,10 @@ export interface Show {
 		};
 	};
 }
+
+export const searchShowsSchema = z.object({
+	genre: z.string().optional(),
+	name: z.string().optional(),
+});
+
+export type SearchShowsSchema = z.infer<typeof searchShowsSchema>;

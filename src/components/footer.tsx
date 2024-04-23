@@ -14,7 +14,7 @@ export function Footer(): JSX.Element {
 						<li>Dispositivos</li>
 					</Link>
 					<Link to="/pricing">
-						<li>Dispositivos</li>
+						<li>Preços</li>
 					</Link>
 					<Link to="/support">
 						<li>FAQ</li>

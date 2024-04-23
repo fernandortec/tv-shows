@@ -33,7 +33,6 @@ export function GenresSection(): JSX.Element {
 		setScrollPosition(newScrollPosition);
 	}
 
-
 	return (
 		<div>
 			<header className={styles.actionsHeader}>
@@ -41,8 +40,8 @@ export function GenresSection(): JSX.Element {
 			</header>
 
 			<div className={styles.genresSection} ref={containerRef}>
-				{genres.map((genre) => (
-					<ActionCard genre={String(genre)} key={String(genre)} />
+				{genres.map((genre, idx) => (
+					<ActionCard genre={String(genre)} key={String(genre)} idx={idx} />
 				))}
 			</div>
 
@@ -56,7 +55,6 @@ export function GenresSection(): JSX.Element {
 					currentValue={scrollPercentage}
 					totalValue={100}
 				/>
-
 				<Button variant="icon-only" onClick={() => handleScroll(300)}>
 					<ChevronRight />
 				</Button>
