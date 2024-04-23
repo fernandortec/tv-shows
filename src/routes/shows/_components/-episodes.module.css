@@ -51,7 +51,7 @@
   margin: 2.5rem 0px;
 }
 
-.episodeContainer img {
+.episodeContainer img:not(.play) {
   height: 7.5rem;
   width: 11rem;
 
@@ -63,8 +63,16 @@
   justify-content: center;
   align-items: center;
   position: relative;
+
+  cursor: pointer;
 }
 
+
+.play {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+}
 
 .episodeNumber {
   width: 4rem;
@@ -96,4 +104,23 @@
   margin-top: 1rem;
   font-size: 1rem;
   color: var(--grey-500);
+}
+
+.episodeAbout header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
+
+.episodeAbout header div {
+  display: flex;
+  align-items: center;
+
+}
+
+.episodeAbout header svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }

@@ -3,6 +3,8 @@ import styles from "./-episodes.module.css";
 import { listAllEpisodes } from "@/api/list-episodes";
 import { useSeasonStore } from "@/store/season-store";
 import { addZeroToNumber } from "@/helpers/add-zero";
+import { truncateString } from "@/helpers/truncate-string";
+import { Clock } from "lucide-react";
 
 export function Episodes(): JSX.Element {
 	const currentSeasonId = useSeasonStore((state) => state.currentSeasonId);
@@ -36,14 +38,29 @@ export function Episodes(): JSX.Element {
 							</p>
 							<div className={`${styles.imageContainer} fadeOutFromBottom `}>
 								<img
+									src="/assets/play-button.svg"
+									alt=""
+									className={styles.play}
+								/>
+								<img
 									src={episode?.image?.medium || episode?.image?.original}
 									alt=""
 								/>
 							</div>
 							<div className={styles.episodeAbout}>
-								<p>{episode.name}</p>
-								{/* biome-ignore lint/security/noDangerouslySetInnerHtml: */}
-								<div dangerouslySetInnerHTML={{ __html: episode.summary }} />
+								<header>
+									<p>{episode.name}</p>
+									<div>
+										<Clock />
+										<span>{episode.airtime.split(":")[0]} min</span>
+									</div>
+								</header>
+								<div
+									/* biome-ignore lint/security/noDangerouslySetInnerHtml: */
+									dangerouslySetInnerHTML={{
+										__html: truncateString(episode.summary, 300),
+									}}
+								/>
 							</div>
 						</div>
 						<hr />
