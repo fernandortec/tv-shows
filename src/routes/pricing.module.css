@@ -1,0 +1,63 @@
+.container {
+  padding: 10rem
+}
+
+.container h1 {
+  font-size: 2.5rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--grey-500);
+  margin-top: 0.5rem;
+}
+
+.cardsContainer {
+  margin-top: 5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card {
+  height: 26rem;
+  width: 32rem;
+
+  padding: 3.5rem;
+  background-color: var(--primary-500);
+
+  border-radius: 12px;
+  border: 2px solid var(--primary-300);
+}
+
+.card p:not(.price) {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.card span {
+  font-size: 0.9rem;
+  color: var(--grey-500);
+}
+
+
+.price {
+  margin-top: 2rem;
+
+  font-size: 2.35rem;
+  font-weight: 600;
+}
+
+button {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+@media(max-width: 1300px) {
+  .cardsContainer {
+    flex-direction: column;
+  }
+}
