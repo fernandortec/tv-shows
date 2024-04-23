@@ -9,15 +9,17 @@ export async function findAllShows(
 	const data: Show[] = await response.json();
 
 	if (name) {
-		const filteredByName = data.filter((show) => show.name.includes(name));
+		console.log(name, '<><><>')
+		const filteredByName = data.filter((show) =>
+			show.name.toLowerCase().includes(name.toLowerCase()),
+		);
 		return filteredByName;
 	}
 
 	if (genre) {
-		const filteredByGenre = data.filter((show) => {
-			console.log(genre, show.genres);
-			return show.genres.includes(capitalize(genre));
-		});
+		const filteredByGenre = data.filter((show) =>
+			show.genres.includes(capitalize(genre)),
+		);
 		return filteredByGenre;
 	}
 

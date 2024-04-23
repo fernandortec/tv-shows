@@ -64,6 +64,7 @@
   gap: 1.25rem;
 }
 
+
 .cardsSection {
   padding: 0px 3rem;
 }
@@ -111,8 +112,10 @@
 }
 
 .error {
+  margin-top: 1rem;
   display: flex;
   align-items: center;
+  padding: 1rem ;
 }
 
 .error a {
