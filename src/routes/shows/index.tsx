@@ -10,6 +10,7 @@ import { Plus, ThumbsUp, Volume2Icon } from "lucide-react";
 import styles from "./index.module.css";
 import { useEffect } from "react";
 import { genresMap } from "@/helpers/available-genres";
+import { ShowDetailsDialog } from "@/routes/shows/_components/-show-details-dialog";
 
 export const Route = createFileRoute("/shows/")({
 	component: () => <ShowsPage />,
@@ -54,7 +55,14 @@ function ShowsPage(): JSX.Element {
 					)}
 
 					<footer className={styles.actions}>
-						<Button variant="play-now">Ver agora</Button>
+						{mainShow ? (
+							<ShowDetailsDialog show={mainShow} asChild={false}>
+								<Button variant="play-now">Ver agora</Button>
+							</ShowDetailsDialog>
+						) : (
+							<Button variant="play-now">Ver agora</Button>
+						)}
+
 						<div>
 							<Button variant="icon-only">
 								<Plus />

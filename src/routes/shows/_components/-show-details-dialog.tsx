@@ -12,11 +12,13 @@ import { useSeasonStore } from "@/store/season-store";
 interface ShowDetailsDialogProps {
 	children: ReactNode;
 	show: Show;
+	asChild?:boolean
 }
 
 export function ShowDetailsDialog({
 	children,
 	show,
+	asChild = true
 }: ShowDetailsDialogProps): JSX.Element {
 	const changeCurrentSeasonId = useSeasonStore(
 		(state) => state.changeCurrentSeasonId,
@@ -32,7 +34,7 @@ export function ShowDetailsDialog({
 		
 	return (
 		<Dialog.Root>
-			<Dialog.Trigger asChild className={styles.trigger}>
+			<Dialog.Trigger asChild={asChild} className={styles.trigger}>
 				{children}
 			</Dialog.Trigger>
 			<Dialog.Portal>
