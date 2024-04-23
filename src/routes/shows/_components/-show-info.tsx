@@ -4,9 +4,10 @@ import { genresMap } from "@/helpers/available-genres";
 import { languagesMap } from "@/helpers/languages-map";
 import { renderStars } from "@/helpers/render-stars";
 import { useQuery } from "@tanstack/react-query";
-import { Blocks, Calendar, Languages, Star } from "lucide-react";
+import { Blocks, Calendar, Languages, Star, StarIcon } from "lucide-react";
 import styles from "./-show-info.module.css";
 import type { Show } from "@/schemas/shows";
+import { useState } from "react";
 
 interface ShowInfoProps {
 	show: Show;
@@ -19,6 +20,12 @@ export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
 	});
 
 	const creator = crew?.find((person) => person.type === "Creator");
+
+	const [imgSrc, setImgSrc] = useState<string | undefined>("/assets/tv-white.svg");
+
+	const onError = () => {
+		setImgSrc("https://cdn-icons-png.freepik.com/512/6596/6596121.png");
+	};
 
 	return (
 		<aside className={styles.container}>
@@ -63,8 +70,10 @@ export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
 					<div className={styles.rating}>
 						<p>Todas avaliações: </p>
 						<div>
-							{renderStars(show.rating.average)}
-							<p>{show.rating.average}</p>
+							<StarIcon />
+							<p>
+								{show.rating.average} / <span>10</span>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -73,7 +82,7 @@ export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
 			<div>
 				<span className={styles.label}>Criador</span>
 				<div className={styles.personContainer}>
-					<img src={creator?.person.image.medium} alt="" />
+					<img src={imgSrc} alt="" />
 					<div>
 						<p>{creator?.person.name}</p>
 					</div>

@@ -1,12 +1,12 @@
-import type { Show } from "@/api/show-schema";
 import { Button } from "@/components/button";
 import { Episodes } from "@/routes/shows/_components/-episodes";
 import { SelectSeason } from "@/routes/shows/_components/-select-seasons";
 import { ShowInfo } from "@/routes/shows/_components/-show-info";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Plus, ThumbsUp, Volume2Icon, X } from "lucide-react";
+import { ArrowLeft, Plus, ThumbsUp, Volume2Icon, X } from "lucide-react";
 import type { ReactNode } from "react";
 import styles from "./-show-details-dialog.module.css";
+import type { Show } from "@/schemas/shows";
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;
@@ -27,6 +27,10 @@ export function ShowDetailsDialog({
 				<Dialog.Content className={`${styles.content}`}>
 					<Dialog.Close className="close">
 						<X size={24} />
+					</Dialog.Close>
+
+					<Dialog.Close asChild>
+						<ArrowLeft style={{ cursor: "pointer" }} />
 					</Dialog.Close>
 
 					<div className={styles.mainImageContainer}>
