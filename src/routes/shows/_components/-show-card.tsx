@@ -1,17 +1,31 @@
-import type { Show } from "@/api/show-schema";
 import { ShowDetailsDialog } from "@/routes/shows/_components/-show-details-dialog";
 import type { HTMLAttributes } from "react";
 import styles from "./-show-card.module.css";
+import type { Show } from "@/schemas/shows";
+import { truncateString } from "@/helpers/truncate-string";
+import { genresMap } from "@/helpers/available-genres";
 
 interface ShowCardProps extends HTMLAttributes<HTMLDivElement> {
 	show: Show;
 }
 
 export function ShowCard({ show, ...props }: ShowCardProps): JSX.Element {
+
 	return (
 		<ShowDetailsDialog show={show}>
-			<div className={`${styles.card} fadeOutFromBottom`} {...props}>
-				<h2>{show.name}</h2>
+			<div className={`${styles.card}`} {...props}>
+				<img src={show.image.medium} alt="" className="" />
+				<div>
+					<p>{show.name}</p>
+					<span>{new Date(show.premiered).getFullYear()}</span>
+					<footer>
+						{show.genres.map((genre) => (
+							<span className={styles.badge} key={genre}>
+								{truncateString(genresMap[genre.toLowerCase()], 8)}
+							</span>
+						))}
+					</footer>
+				</div>
 			</div>
 		</ShowDetailsDialog>
 	);

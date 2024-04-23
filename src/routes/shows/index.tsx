@@ -79,7 +79,6 @@ function ShowsPage(): JSX.Element {
 					{allShows?.map((show) => (
 						<ShowCard
 							key={show.id}
-							style={{ backgroundImage: `url(${show.image.medium})` }}
 							show={show}
 						/>
 					))}

@@ -1,11 +1,12 @@
 import { getShowCrew } from "@/api/get-show-crew";
-import type { Show } from "@/api/show-schema";
+
 import { genresMap } from "@/helpers/available-genres";
 import { languagesMap } from "@/helpers/languages-map";
 import { renderStars } from "@/helpers/render-stars";
 import { useQuery } from "@tanstack/react-query";
 import { Blocks, Calendar, Languages, Star } from "lucide-react";
 import styles from "./-show-info.module.css";
+import type { Show } from "@/schemas/shows";
 
 interface ShowInfoProps {
 	show: Show;
