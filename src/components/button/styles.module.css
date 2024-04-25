@@ -1,10 +1,9 @@
 button {
   display: flex;
   align-items: center;
-
   gap: 8px;
-  border: none;
 
+  border: none;
   border-radius: 6px;
 }
 
@@ -13,32 +12,43 @@ button:hover {
   cursor: pointer;
 }
 
-.playButton {
+.playNowButton {
   padding: 0.8rem 2rem;
 
-  background: var(--secondary-500);
   color: var(--white);
+  background: var(--secondary-500);
 }
 
-.playButton:hover {
+.playNowButton:hover {
   background-color: var(--secondary-700);
 }
 
 .iconButton {
-  height: 3.5rem;
-  width: 3.5rem;
-
-  padding: 0px;
-
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background: var(--primary-700);
-  color: var(--white);
+  height: 3.5rem;
+  width: 3.5rem;
+
+  padding: 0px;
   border: 1px solid var(--primary-300);
+
+  color: var(--white);
+  background: var(--primary-700);
 }
 
 .iconButton:hover {
   background-color: var(--primary-500);
+}
+
+.primaryButton {
+  padding: 0.8rem 2rem;
+
+  background: var(--secondary-700);
+  color: var(--white);
+}
+
+.primaryButton:hover {
+  background: var(--secondary-800);
 }

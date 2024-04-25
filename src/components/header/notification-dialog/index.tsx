@@ -1,6 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { Bell, Check, X } from "lucide-react";
-import styles from "./notifications-dialog.module.css";
+import styles from "./styles.module.css";
 
 export function NotificationsDialog(): JSX.Element {
 	return (

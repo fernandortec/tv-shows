@@ -1,7 +1,7 @@
 import { ShowDetailsDialog } from "@/routes/shows/_components/-show-details-dialog";
 import type { HTMLAttributes } from "react";
 import styles from "./-show-card.module.css";
-import type { Show } from "@/schemas/shows";
+import type { Show } from "@/services/schemas/shows";
 import { truncateString } from "@/helpers/truncate-string";
 import { genresMap } from "@/helpers/available-genres";
 
@@ -10,7 +10,6 @@ interface ShowCardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function ShowCard({ show, ...props }: ShowCardProps): JSX.Element {
-
 	return (
 		<ShowDetailsDialog show={show}>
 			<div className={`${styles.card}`} {...props}>

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import styles from "./-episodes.module.css";
-import { listAllEpisodes } from "@/api/list-episodes";
-import { useSeasonStore } from "@/store/season-store";
+import { listAllEpisodes } from "@/services/list-episodes";
+import { useSeasonStore } from "@/store/seasons-store";
 import { addZeroToNumber } from "@/helpers/add-zero";
 import { truncateString } from "@/helpers/truncate-string";
 import { Clock } from "lucide-react";

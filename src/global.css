@@ -7,6 +7,7 @@
   --secondary-300: #FF4545;
   --secondary-500: #E50000;
   --secondary-700: #B20000;
+  --secondary-800: #770000;
 
   --white: #FFF;
   --grey-500: #999999;
@@ -33,7 +34,11 @@ button {
 
 a {
   text-decoration: none;
-  color: white;
+  color: var(--white);
+}
+
+ul {
+  list-style: none;
 }
 
 ::-webkit-scrollbar {

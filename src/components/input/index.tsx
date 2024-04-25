@@ -1,7 +1,8 @@
 import { Search } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
-import styles from "./search-input.module.css";
 import { useNavigate } from "@tanstack/react-router";
+
+import styles from "./styles.module.css";
 
 export function SearchInput(): JSX.Element {
 	const navigate = useNavigate();

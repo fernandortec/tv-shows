@@ -6,8 +6,8 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { ArrowLeft, Plus, ThumbsUp, Volume2Icon, X } from "lucide-react";
 import type { ReactNode } from "react";
 import styles from "./-show-details-dialog.module.css";
-import type { Show } from "@/schemas/shows";
-import { useSeasonStore } from "@/store/season-store";
+import type { Show } from "@/services/schemas/shows";
+import { useSeasonStore } from "@/store/seasons-store";
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;

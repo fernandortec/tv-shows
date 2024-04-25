@@ -1,5 +1,5 @@
-import { listAllSeasons } from "@/api/list-seasons";
-import { useSeasonStore } from "@/store/season-store";
+import { listAllSeasons } from "@/services/list-seasons";
+import { useSeasonStore } from "@/store/seasons-store";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronDownIcon } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -20,7 +20,9 @@ export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 	);
 
 	const currentSeasonId = useSeasonStore((state) => state.currentSeasonId);
-	const currentSeasonNumber = useSeasonStore((state) => state.currentSeasonNumber);
+	const currentSeasonNumber = useSeasonStore(
+		(state) => state.currentSeasonNumber,
+	);
 
 	const { data: seasons, isSuccess } = useQuery({
 		queryKey: ["shows", "seasons", showId],

@@ -1,7 +1,8 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import styles from "./hamburguer-menu-dialog.module.css";
 import { X } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+
+import styles from "./styles.module.css";
 
 export function HamburguerMenuDialog(): JSX.Element {
 	return (

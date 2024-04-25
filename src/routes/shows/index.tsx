@@ -1,9 +1,12 @@
-import { findAllShows } from "@/api/find-all-shows";
-import { getMainShow } from "@/api/get-main-show";
+import { findAllShows } from "@/services/find-all-shows";
+import { getMainShow } from "@/services/get-main-show";
 import { Button } from "@/components/button";
 import { GenresSection } from "@/routes/shows/_components/-genres-section";
 import { ShowCard } from "@/routes/shows/_components/-show-card";
-import { type SearchShowsSchema, searchShowsSchema } from "@/schemas/shows";
+import {
+	type SearchShowsSchema,
+	searchShowsSchema,
+} from "@/services/schemas/shows";
 import { useQuery } from "@tanstack/react-query";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { Plus, ThumbsUp, Volume2Icon } from "lucide-react";

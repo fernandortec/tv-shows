@@ -1,5 +1,5 @@
 import { capitalize } from "@/helpers/capitalize-first-letter";
-import type { Show } from "@/schemas/shows";
+import type { Show } from "@/services/schemas/shows";
 
 export async function findAllShows(
 	name?: string,
@@ -9,7 +9,6 @@ export async function findAllShows(
 	const data: Show[] = await response.json();
 
 	if (name) {
-
 		const filteredByName = data.filter((show) =>
 			show.name.toLowerCase().includes(name.toLowerCase()),
 		);

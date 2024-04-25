@@ -1,9 +1,11 @@
-import { PlayIcon } from "lucide-react";
 import type { ButtonHTMLAttributes } from "react";
-import styles from "./button.module.css";
+import { PlayIcon } from "lucide-react";
+import styles from "./styles.module.css";
+
+type Variants = "play-now" | "icon-only" | "primary";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	variant?: "play-now" | "icon-only" | "primary";
+	variant?: Variants;
 }
 
 export function Button({
@@ -12,24 +14,20 @@ export function Button({
 	children,
 	...props
 }: ButtonProps): JSX.Element {
-	let classNameBasedOnVariant = styles.playButton;
+	const classNameByVariant: { [key in Variants]: string } = {
+		"icon-only": styles.iconButton,
+		"play-now": styles.playNowButton,
+		primary: styles.primaryButton,
+	};
 
-	switch (variant) {
-		case "play-now":
-			classNameBasedOnVariant = styles.playButton;
-			break;
-
-		case "icon-only":
-			classNameBasedOnVariant = styles.iconButton;
-			break;
-
-		case "primary":
-			classNameBasedOnVariant = styles.playButton;
-			break;
-	}
+	const currentVariant = variant ?? "primary";
 
 	return (
-		<button className={classNameBasedOnVariant} type={type} {...props}>
+		<button
+			className={classNameByVariant[currentVariant]}
+			type={type}
+			{...props}
+		>
 			{variant === "play-now" && <PlayIcon fill="white" size="28" />}
 			{children}
 		</button>

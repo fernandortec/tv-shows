@@ -1,11 +1,11 @@
-import styles from "./header.module.css";
-import logo from "/assets/tv-white.svg";
-
 import { HamburguerMenuDialog } from "@/components/header/hamburguer-menu";
 import { Navbar } from "@/components/navbar";
 import { NotificationsDialog } from "@/components/header/notification-dialog";
 import { SearchInput } from "@/components/input";
 import { Link } from "@tanstack/react-router";
+
+import styles from "./styles.module.css";
+import logo from "/assets/tv-white.svg";
 
 export function Header(): JSX.Element {
 	return (

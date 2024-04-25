@@ -1,8 +1,8 @@
-import { getShowCrew } from "@/api/get-show-crew";
+import { getShowCrew } from "@/services/get-show-crew";
 
 import { genresMap } from "@/helpers/available-genres";
 import { languagesMap } from "@/helpers/languages-map";
-import type { Show } from "@/schemas/shows";
+import type { Show } from "@/services/schemas/shows";
 import { useQuery } from "@tanstack/react-query";
 import { Blocks, Calendar, Languages, Star, StarIcon } from "lucide-react";
 import { useState } from "react";
@@ -20,7 +20,9 @@ export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
 
 	const creator = crew?.find((person) => person.type === "Creator");
 
-	const [imgSrc, setImgSrc] = useState<string | undefined>("/assets/tv-white.svg");
+	const [imgSrc, setImgSrc] = useState<string | undefined>(
+		"/assets/tv-white.svg",
+	);
 
 	const onError = () => {
 		setImgSrc("https://cdn-icons-png.freepik.com/512/6596/6596121.png");

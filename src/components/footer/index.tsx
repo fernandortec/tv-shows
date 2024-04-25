@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import styles from "./footer.module.css";
+import styles from "./styles.module.css";
 
 export function Footer(): JSX.Element {
 	return (
 		<footer className={styles.footer}>
-			<nav className={styles.nav}>
-				<ul>
+			<nav className={styles.navbar}>
+				<ul className={styles.navList}>
 					<p>Home</p>
 					<Link to="/shows">
 						<li>Categorias</li>

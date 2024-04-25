@@ -1,33 +1,30 @@
 .footer {
   display: flex;
   flex-direction: column;
-
   gap: 8rem;
+
   padding: 6rem 0px;
 
   max-width: 80vw;
   margin: auto;
 }
 
-.nav {
+.navbar {
   display: flex;
   align-items: start;
-
-
   justify-content: space-between;
 }
 
-.nav p {
+.navbar p {
   color: white;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.75rem;
 }
 
-.nav ul {
+.navList {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 
-  list-style: none;
 }
 
 .nav li {

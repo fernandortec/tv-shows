@@ -1,5 +1,5 @@
 import * as Progress from "@radix-ui/react-progress";
-import styles from "./pagination-progress.module.css";
+import styles from "./styles.module.css";
 
 interface PaginationProgressProps {
 	className?: string;
