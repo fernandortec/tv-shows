@@ -1,28 +1,6 @@
-.trigger {
-  color: var(--white);
-  background: transparent;
-  cursor: pointer;
-}
-
-.content {
-  width: 32rem;
-  border-radius: 8px;
-  padding: 2.5rem 3rem;
-
-  background: var(--primary-500);
-
-  position: fixed;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  z-index: 20;
-}
-
-
-
 .notification {
+  width: 28rem;
+
   display: flex;
   align-items: center;
   gap: 1rem;
