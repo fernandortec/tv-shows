@@ -6,10 +6,6 @@
   background: rgba(0, 0, 0, 0.75);
 }
 
-.trigger {
-  cursor: pointer;
-}
-
 .content {
   color: var(--white);
   position: fixed;
@@ -24,16 +20,3 @@
   transform: translate(-50%, -50%);
 }
 
-.close {
-  position: fixed;
-
-  background: transparent;
-  border: 0;
-
-  top: -3rem;
-  right: 0.8rem;
-
-  line-height: 0;
-  cursor: pointer;
-  color: var(--white);
-}
