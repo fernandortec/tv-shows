@@ -32,7 +32,8 @@
 }
 
 @media(max-width: 960px) {
-  .header {padding: 0px 2rem;
+  .header {
+    padding: 0px 2rem;
   }
 
   .logo {
@@ -43,7 +44,8 @@
     width: 30%;
   }
 
-  .actions, nav {
+  .actions,
+  nav {
     display: none;
   }
 

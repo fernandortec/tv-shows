@@ -19,7 +19,6 @@ export function NotificationsDialog(): JSX.Element {
 				<div className={styles.notification}>
 					<Check />
 					<p>Não há nenhuma notificação para você</p>
-					<span />
 				</div>
 			</DialogContent>
 		</Dialog>

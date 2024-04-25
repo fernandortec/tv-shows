@@ -28,8 +28,12 @@ export function DialogContent({
 		}
 	}, [showModal]);
 
+	function handleCloseDialog(): void {
+		setShowModal(false);
+	}
+
 	return (
-		<dialog data-modal ref={dialogRef} onClose={() => setShowModal(false)}>
+		<dialog data-modal ref={dialogRef} onClose={handleCloseDialog}>
 			<div className={styles.content} style={style}>
 				{children}
 			</div>

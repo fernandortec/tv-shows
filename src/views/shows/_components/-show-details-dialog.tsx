@@ -1,13 +1,13 @@
-import { Button } from "@/components/button";
-import { Episodes } from "@/routes/shows/_components/-episodes";
-import { SelectSeason } from "@/routes/shows/_components/-select-seasons";
-import { ShowInfo } from "@/routes/shows/_components/-show-info";
-import * as Dialog from "@radix-ui/react-dialog";
-import { ArrowLeft, Plus, ThumbsUp, Volume2Icon, X } from "lucide-react";
-import type { ReactNode } from "react";
-import styles from "./-show-details-dialog.module.css";
-import type { Show } from "@/services/schemas/shows";
-import { useSeasonStore } from "@/store/seasons-store";
+import { Button } from '@/components/button';
+import { Episodes } from '@/views/shows/_components/-episodes';
+import { SelectSeason } from '@/views/shows/_components/-select-seasons';
+import { ShowInfo } from '@/views/shows/_components/-show-info';
+import * as Dialog from '@radix-ui/react-dialog';
+import { ArrowLeft, Plus, ThumbsUp, Volume2Icon, X } from 'lucide-react';
+import type { ReactNode } from 'react';
+import styles from './-show-details-dialog.module.css';
+import type { Show } from '@/services/schemas/shows';
+import { useSeasonStore } from '@/store/seasons-store';
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;
@@ -21,10 +21,10 @@ export function ShowDetailsDialog({
 	asChild = true,
 }: ShowDetailsDialogProps): JSX.Element {
 	const changeCurrentSeasonId = useSeasonStore(
-		(state) => state.changeCurrentSeasonId,
+		(state) => state.changeCurrentSeasonId
 	);
 	const changeCurrentSeasonNumber = useSeasonStore(
-		(state) => state.changeCurrentSeasonNumber,
+		(state) => state.changeCurrentSeasonNumber
 	);
 
 	function handleCloseDialog(): void {
@@ -46,7 +46,7 @@ export function ShowDetailsDialog({
 
 					<Dialog.Close asChild>
 						<ArrowLeft
-							style={{ cursor: "pointer" }}
+							style={{ cursor: 'pointer' }}
 							onClick={handleCloseDialog}
 						/>
 					</Dialog.Close>

@@ -15,7 +15,7 @@
   padding: 0px 1rem;
 }
 
-.notification * {
+.notification p  {
   font-size: 0.875rem;
 
   opacity: 0.6;

@@ -10,64 +10,64 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './../routes/__root'
-import { Route as SupportImport } from './../routes/support'
-import { Route as PricingImport } from './../routes/pricing'
-import { Route as IndexImport } from './../routes/index'
-import { Route as ShowsIndexImport } from './../routes/shows/index'
+import { Route as rootRoute } from '../views/__root';
+import { Route as SupportImport } from '../views/support';
+import { Route as PricingImport } from '../views/pricing';
+import { Route as IndexImport } from '../views/index';
+import { Route as ShowsIndexImport } from '../views/shows/index';
 
 // Create/Update Routes
 
 const SupportRoute = SupportImport.update({
-  path: '/support',
-  getParentRoute: () => rootRoute,
-} as any)
+	path: '/support',
+	getParentRoute: () => rootRoute,
+} as any);
 
 const PricingRoute = PricingImport.update({
-  path: '/pricing',
-  getParentRoute: () => rootRoute,
-} as any)
+	path: '/pricing',
+	getParentRoute: () => rootRoute,
+} as any);
 
 const IndexRoute = IndexImport.update({
-  path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
+	path: '/',
+	getParentRoute: () => rootRoute,
+} as any);
 
 const ShowsIndexRoute = ShowsIndexImport.update({
-  path: '/shows/',
-  getParentRoute: () => rootRoute,
-} as any)
+	path: '/shows/',
+	getParentRoute: () => rootRoute,
+} as any);
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/': {
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/pricing': {
-      preLoaderRoute: typeof PricingImport
-      parentRoute: typeof rootRoute
-    }
-    '/support': {
-      preLoaderRoute: typeof SupportImport
-      parentRoute: typeof rootRoute
-    }
-    '/shows/': {
-      preLoaderRoute: typeof ShowsIndexImport
-      parentRoute: typeof rootRoute
-    }
-  }
+	interface FileRoutesByPath {
+		'/': {
+			preLoaderRoute: typeof IndexImport;
+			parentRoute: typeof rootRoute;
+		};
+		'/pricing': {
+			preLoaderRoute: typeof PricingImport;
+			parentRoute: typeof rootRoute;
+		};
+		'/support': {
+			preLoaderRoute: typeof SupportImport;
+			parentRoute: typeof rootRoute;
+		};
+		'/shows/': {
+			preLoaderRoute: typeof ShowsIndexImport;
+			parentRoute: typeof rootRoute;
+		};
+	}
 }
 
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  IndexRoute,
-  PricingRoute,
-  SupportRoute,
-  ShowsIndexRoute,
-])
+	IndexRoute,
+	PricingRoute,
+	SupportRoute,
+	ShowsIndexRoute,
+]);
 
 /* prettier-ignore-end */

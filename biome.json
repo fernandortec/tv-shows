@@ -8,5 +8,20 @@
 		"rules": {
 			"recommended": true
 		}
+	},
+	"formatter": {
+		"lineWidth": 80,
+		"indentWidth": 2,
+		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"trailingComma": "es5",
+			"bracketSpacing": true,
+			"quoteProperties": "asNeeded",
+			"arrowParentheses": "always",
+			"bracketSameLine": false
+		}
 	}
 }

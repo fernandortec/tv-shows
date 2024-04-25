@@ -1,21 +1,21 @@
-import { findAllShows } from "@/services/find-all-shows";
-import { getMainShow } from "@/services/get-main-show";
-import { Button } from "@/components/button";
-import { GenresSection } from "@/routes/shows/_components/-genres-section";
-import { ShowCard } from "@/routes/shows/_components/-show-card";
+import { findAllShows } from '@/services/find-all-shows';
+import { getMainShow } from '@/services/get-main-show';
+import { Button } from '@/components/button';
+import { GenresSection } from '@/views/shows/_components/-genres-section';
+import { ShowCard } from '@/views/shows/_components/-show-card';
 import {
 	type SearchShowsSchema,
 	searchShowsSchema,
-} from "@/services/schemas/shows";
-import { useQuery } from "@tanstack/react-query";
-import { Link, createFileRoute } from "@tanstack/react-router";
-import { Plus, ThumbsUp, Volume2Icon } from "lucide-react";
-import styles from "./index.module.css";
-import { useEffect } from "react";
-import { genresMap } from "@/helpers/available-genres";
-import { ShowDetailsDialog } from "@/routes/shows/_components/-show-details-dialog";
+} from '@/services/schemas/shows';
+import { useQuery } from '@tanstack/react-query';
+import { Link, createFileRoute } from '@tanstack/react-router';
+import { Plus, ThumbsUp, Volume2Icon } from 'lucide-react';
+import styles from './index.module.css';
+import { useEffect } from 'react';
+import { genresMap } from '@/helpers/available-genres';
+import { ShowDetailsDialog } from '@/views/shows/_components/-show-details-dialog';
 
-export const Route = createFileRoute("/shows/")({
+export const Route = createFileRoute('/shows/')({
 	component: () => <ShowsPage />,
 	validateSearch: (searchParams: {
 		[key: string]: string;
@@ -26,19 +26,19 @@ function ShowsPage(): JSX.Element {
 	const { name, genre } = Route.useSearch();
 
 	const { data: mainShow } = useQuery({
-		queryKey: ["shows", "main"],
+		queryKey: ['shows', 'main'],
 		queryFn: getMainShow,
 	});
 
 	const { data: allShows } = useQuery({
-		queryKey: ["shows", name, genre],
+		queryKey: ['shows', name, genre],
 		queryFn: () => findAllShows(name, genre),
 	});
 
 	useEffect(() => {
 		if (!name && !genre) return;
 
-		const element = document.getElementById("shows-title");
+		const element = document.getElementById('shows-title');
 		element?.scrollIntoView();
 	}, [name, genre]);
 
@@ -89,12 +89,12 @@ function ShowsPage(): JSX.Element {
 				<div className={styles.headerSection}>
 					<div>
 						<p className={styles.showsTitle} id="shows-title">
-							Navegue entre as séries:{" "}
+							Navegue entre as séries:{' '}
 						</p>
 						{!name && !genre && <span>Listando todas as séries</span>}
 						{name && (
 							<span>
-								Listando séries com o nome {name}{" "}
+								Listando séries com o nome {name}{' '}
 								{genre && `e com o gênero ${genresMap[genre]}`}
 							</span>
 						)}
@@ -107,7 +107,7 @@ function ShowsPage(): JSX.Element {
 				</div>
 				{allShows?.length === 0 && (
 					<p className={styles.error}>
-						Não foi encontrado nenhuma série com este nome/gênero{" "}
+						Não foi encontrado nenhuma série com este nome/gênero{' '}
 						<Link to="/shows">Remover filtros</Link>
 					</p>
 				)}

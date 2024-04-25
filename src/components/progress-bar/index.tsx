@@ -1,30 +1,23 @@
-import * as Progress from "@radix-ui/react-progress";
-import styles from "./styles.module.css";
+import styles from './styles.module.css';
 
-interface PaginationProgressProps {
+interface ProgressBarProps {
+	value?: number;
+	maxValue?: number;
 	className?: string;
-	progressClassName?: string;
-	totalValue?: number;
-	currentValue?: number;
 }
 
-export function PaginationProgress({
+export function ProgressBar({
 	className,
-	progressClassName,
-	currentValue,
-	totalValue,
-}: PaginationProgressProps): JSX.Element {
+	maxValue,
+	value,
+}: ProgressBarProps): JSX.Element {
 	return (
-		<Progress.Root
+		<progress
 			className={`${styles.progressRoot} ${className}`}
-			value={totalValue}
+			value={value}
+			max={100}
 		>
-			<Progress.Indicator
-				className={`${styles.progressIndicator} ${progressClassName}`}
-				style={{
-					transform: `translateX(-${(totalValue ?? 0) - (currentValue ?? 0)}%)`,
-				}}
-			/>
-		</Progress.Root>
+			{value}%
+		</progress>
 	);
 }

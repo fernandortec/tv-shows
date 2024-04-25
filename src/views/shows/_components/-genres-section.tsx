@@ -1,11 +1,11 @@
-import { genres } from "@/helpers/available-genres";
+import { genres } from '@/helpers/available-genres';
 
-import { Button } from "@/components/button";
-import { PaginationProgress } from "@/components/progress-bar";
-import { ActionCard } from "@/routes/shows/_components/-action-card";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef, useState } from "react";
-import styles from "./-genres-section.module.css";
+import { Button } from '@/components/button';
+import { PaginationProgress } from '@/components/progress-bar';
+import { ActionCard } from '@/views/shows/_components/-action-card';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRef, useState } from 'react';
+import styles from './-genres-section.module.css';
 
 export function GenresSection(): JSX.Element {
 	const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -22,7 +22,7 @@ export function GenresSection(): JSX.Element {
 
 		const scrollableWidth = container.scrollWidth - container.clientWidth;
 		const scrolledPercentage = Math.ceil(
-			(newScrollPosition / (scrollableWidth || 1)) * 100,
+			(newScrollPosition / (scrollableWidth || 1)) * 100
 		);
 
 		const roundedPercentage = Math.round(scrolledPercentage / 5) * 5;
