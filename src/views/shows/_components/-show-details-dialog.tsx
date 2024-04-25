@@ -11,7 +11,7 @@ import { useSeasonStore } from '@/store/seasons-store';
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;
-	show: Show;
+	show?: Show;
 	asChild?: boolean;
 }
 

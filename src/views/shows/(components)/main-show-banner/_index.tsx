@@ -1,10 +1,11 @@
 import type { Show } from '@/services/schemas/shows';
 import { Button } from '@/components/button';
-import { ShowDetailsDialog } from '@/views/shows/_components/-show-details-dialog';
+
 import { Plus, ThumbsUp, Volume2Icon } from 'lucide-react';
 
 import styles from './styles.module.css';
 import { FadedContainer } from '@/components/faded-container';
+import { ShowDetailsDialog } from '@/views/shows/(components)/show-details-dialog/_index';
 
 interface MainShowBannerProps {
 	show?: Show;
@@ -24,7 +25,7 @@ export function MainShowBanner({ show: mainShow }: MainShowBannerProps): JSX.Ele
 
 					<footer className={styles.actions}>
 						{mainShow && (
-							<ShowDetailsDialog show={mainShow} asChild={false}>
+							<ShowDetailsDialog show={mainShow}>
 								<Button variant="play-now">Ver agora</Button>
 							</ShowDetailsDialog>
 						)}

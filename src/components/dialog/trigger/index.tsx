@@ -27,14 +27,10 @@ export function DialogTrigger({
 				renderChildren({
 					children,
 					onClick: handleOpenModal,
-					className: styles.trigger,
+					className: `${styles.trigger} ${className}`,
 				})
 			) : (
-				<button
-					type="button"
-					className={styles.close}
-					onClick={handleOpenModal}
-				>
+				<button type="button" onClick={handleOpenModal}>
 					{children}
 				</button>
 			)}

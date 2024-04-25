@@ -51,6 +51,7 @@ function ShowsPage(): JSX.Element {
 
 			<section className={styles.cardsSection} id="cards">
 				<Button variant="primary">Séries</Button>
+				
 				<GenresSection />
 
 				<div className={styles.headerSection}>
