@@ -7,7 +7,10 @@ export const Route = createFileRoute("/pricing")({
 });
 
 function Pricing(): JSX.Element {
-	const formatPrice = new Intl.NumberFormat('pt-BR',{style: "currency",currency: "BRL"})
+	const formatPrice = new Intl.NumberFormat("pt-BR", {
+		style: "currency",
+		currency: "BRL",
+	});
 
 	return (
 		<main className={styles.container}>
@@ -22,8 +25,8 @@ function Pricing(): JSX.Element {
 				<div className={styles.card}>
 					<p>Plano básico</p>
 					<span>
-						Aproveite uma extensa biblioteca de séries, com
-						variedade de conteúdos, incluindo títulos lançados recentemente.
+						Aproveite uma extensa biblioteca de séries, com variedade de
+						conteúdos, incluindo títulos lançados recentemente.
 					</span>
 					<p className={styles.price}>
 						{formatPrice.format(9.99)}
@@ -36,7 +39,8 @@ function Pricing(): JSX.Element {
 				<div className={styles.card}>
 					<p>Plano Standard</p>
 					<span>
-						Acesso a uma seleção ampla de séries, incluindo lançamentos recentes e conteúdo exclusivo.
+						Acesso a uma seleção ampla de séries, incluindo lançamentos recentes
+						e conteúdo exclusivo.
 					</span>
 					<p className={styles.price}>
 						{formatPrice.format(12.99)} <span>/mês</span>
@@ -48,8 +52,8 @@ function Pricing(): JSX.Element {
 				<div className={styles.card}>
 					<p>Plano Premium</p>
 					<span>
-						Acesso à melhor seleção de séries, incluindo todos
-						os lançamentos mais recentes e visualização offline.
+						Acesso à melhor seleção de séries, incluindo todos os lançamentos
+						mais recentes e visualização offline.
 					</span>
 					<p className={styles.price}>
 						{formatPrice.format(14.99)}

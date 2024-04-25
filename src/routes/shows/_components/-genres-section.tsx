@@ -1,7 +1,7 @@
 import { genres } from "@/helpers/available-genres";
 
 import { Button } from "@/components/button";
-import { PaginationProgress } from "@/components/pagination-progress";
+import { PaginationProgress } from "@/components/progress-bar";
 import { ActionCard } from "@/routes/shows/_components/-action-card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState } from "react";
