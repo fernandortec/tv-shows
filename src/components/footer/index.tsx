@@ -4,66 +4,38 @@ import styles from "./styles.module.css";
 export function Footer(): JSX.Element {
 	return (
 		<footer className={styles.footer}>
-			<nav className={styles.navbar}>
+			<nav>
 				<ul className={styles.navList}>
-					<p>Home</p>
-					<Link to="/shows">
-						<li>Categorias</li>
-					</Link>
-					<Link to="/support">
-						<li>Dispositivos</li>
-					</Link>
-					<Link to="/pricing">
-						<li>Preços</li>
-					</Link>
-					<Link to="/support">
-						<li>FAQ</li>
-					</Link>
-				</ul>
-				<ul>
-					<p>Filmes</p>
-					<Link to="/shows">
-						<li>Gêneros</li>
-					</Link>
-					<Link to="/shows">
-						<li>Bombando</li>
-					</Link>
-					<Link to="/shows">
-						<li>Lançamentos</li>
-					</Link>
-					<Link to="/shows">
-						<li>Popular</li>
-					</Link>
-				</ul>
-				<ul>
-					<p>Séries</p>
-					<Link to="/shows">
-						<li>Gêneros</li>
-					</Link>
-					<Link to="/shows">
-						<li>Bombando</li>
-					</Link>
-					<Link to="/shows">
-						<li>Lançamentos</li>
-					</Link>
-					<Link to="/shows">
-						<li>Popular</li>
-					</Link>
-				</ul>
-				<ul>
-					<p>Suporte</p>
-					<Link to="/support">
-						<li>Entre em contato</li>
-					</Link>
-				</ul>
-				<ul>
-					<p>Planos</p>
-					<Link to="/pricing">
-						<li>Planos disponíveis</li>
-					</Link>
-					<Link to="/pricing">
-						<li>Funcionalidades</li>
-					</Link>
+					<li>
+						<p>Home</p>
+						<Link to="/shows">Categorias</Link>
+						<Link to="/support">Dispositivos</Link>
+						<Link to="/pricing">Preços</Link>
+						<Link to="/support">FAQ</Link>
+					</li>
+					<li>
+						<p>Filmes</p>
+						<Link to="/shows">Gêneros</Link>
+						<Link to="/shows">Bombando</Link>
+						<Link to="/shows">Lançamentos</Link>
+						<Link to="/shows">Popular</Link>
+					</li>
+					<li>
+						<p>Séries</p>
+						<Link to="/shows">Gêneros</Link>
+						<Link to="/shows">Bombando</Link>
+						<Link to="/shows">Lançamentos</Link>
+						<Link to="/shows">Popular</Link>
+					</li>
+					<li>
+						<p>Suporte</p>
+						<Link to="/support">Entre em contato</Link>
+					</li>
+					<li>
+						<p>Planos</p>
+						<Link to="/pricing">Planos disponíveis</Link>
+						<Link to="/pricing">Funcionalidades</Link>
+					</li>
 				</ul>
 			</nav>
 

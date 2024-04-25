@@ -14,9 +14,8 @@ export function SearchInput(): JSX.Element {
 		setIsInputOpen((prevState) => !prevState);
 	};
 
-	// biome-ignore lint/suspicious/noExplicitAny:
-	const handleDocumentClick = (e: any) => {
-		if (!e.target.closest(`.${styles.search}`)) {
+	const handleDocumentClick = (e: MouseEvent) => {
+		if (!(e.target as HTMLElement).closest(`.${styles.search}`)) {
 			setIsInputOpen(false);
 		}
 	};
@@ -30,13 +29,14 @@ export function SearchInput(): JSX.Element {
 
 	function handleFilterByName(e: FormEvent): void {
 		e.preventDefault();
+		if (inputValue.length === 0) return;
 
 		navigate({ to: "/shows", search: { name: inputValue } });
 	}
 
 	return (
-		<div className={styles.search}>
-			<form onSubmit={handleFilterByName}>
+		<>
+			<form className={styles.search} onSubmit={handleFilterByName}>
 				<input
 					className={`${styles.searchInput} ${isInputOpen && styles.toggle}`}
 					type="text"
@@ -44,15 +44,15 @@ export function SearchInput(): JSX.Element {
 					value={inputValue}
 					onChange={(e) => setInputValue(e.target.value)}
 				/>
+				<Search
+					size="24"
+					className={styles.searchIcon}
+					onClick={(e) => {
+						toggleInput();
+						if (isInputOpen) handleFilterByName(e);
+					}}
+				/>
 			</form>
-			<Search
-				size="24"
-				className={styles.searchIcon}
-				onClick={(e) => {
-					toggleInput();
-					if (isInputOpen) handleFilterByName(e);
-				}}
-			/>
-		</div>
+		</>
 	);
 }

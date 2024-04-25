@@ -3,33 +3,30 @@
   flex-direction: column;
   gap: 8rem;
 
-  padding: 6rem 0px;
-
-  max-width: 80vw;
-  margin: auto;
+  padding: 6rem 6rem;
+  margin: auto
 }
 
-.navbar {
+.navList {
   display: flex;
   align-items: start;
   justify-content: space-between;
 }
 
-.navbar p {
-  color: white;
+.navList p {
   margin-bottom: 0.75rem;
 }
 
-.navList {
+.navList li {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-
 }
 
-.nav li {
-  color: var(--grey-500)
+.navList li a {
+  color: var(--grey-500);
 }
+
 
 .about {
   display: flex;

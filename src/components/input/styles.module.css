@@ -7,20 +7,27 @@
 
 .searchInput {
   width: 0px;
-  height: 34px;
+  height: 2rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  outline: none;
   box-shadow: none;
   background: transparent;
   color: #fff;
-  border: 1px solid transparent;
-  outline: none;
-  padding-left: 35px;
-  font-size: 16px;
+
+  padding-left: 2rem;
+  font-size: 1rem;
+
   transition: 0.3s ease all;
-  border-radius: 4px;
+}
+
+.searchInput::placeholder {
+  color: var(--grey-500);
 }
 
 .toggle {
-  width: 240px;
+  width: 14rem;
   border-color: #fff;
 }
 

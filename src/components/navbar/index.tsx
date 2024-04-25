@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import styles from "./navbar.module.css";
+import styles from "./styles.module.css";
 
 export function Navbar(): JSX.Element {
 	const { location } = useRouterState();

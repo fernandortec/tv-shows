@@ -5,17 +5,17 @@ import { SearchInput } from "@/components/input";
 import { Link } from "@tanstack/react-router";
 
 import styles from "./styles.module.css";
-import logo from "/assets/tv-white.svg";
 
 export function Header(): JSX.Element {
 	return (
 		<header className={styles.header}>
 			<Link to="/" className={styles.logo}>
-				<img alt="" src={logo} />
-				<p>TvShows</p>
+				<img alt="" src="/assets/tv-white.svg" />
+				TvShows
 			</Link>
 
 			<Navbar />
+			
 			<div className={styles.actions}>
 				<SearchInput />
 				<NotificationsDialog />
