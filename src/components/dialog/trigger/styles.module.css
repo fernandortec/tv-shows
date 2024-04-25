@@ -1,3 +1,7 @@
 .trigger {
   cursor: pointer;
 }
+button {
+  inset: 0;
+  background: transparent;
+}

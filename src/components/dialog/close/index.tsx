@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 import { renderChildren } from "@/helpers/render-children";
 
 interface DialogCloseProps {
-	children: ReactNode;
+	children?: ReactNode;
 	asChild?: boolean;
 }
 
@@ -23,7 +23,7 @@ export function DialogClose({
 	return (
 		<>
 			{asChild ? (
-				renderChildren(children, handleCloseModal)
+				renderChildren({ children, onClick: handleCloseModal })
 			) : (
 				<button
 					type="button"

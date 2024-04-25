@@ -5,18 +5,3 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
 }
-
-.content {
-  color: var(--white);
-  position: fixed;
-
-  padding: 2.5rem 3rem;
-
-  border-radius: 8px;
-  background: var(--primary-500);
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-

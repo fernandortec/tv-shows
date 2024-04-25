@@ -1,13 +1,17 @@
 .close {
-  position: fixed;
+  position: absolute;
 
-  background: transparent;
-  border: 0;
+  display: flex;
+  justify-content: flex-end;
 
-  top: -3rem;
-  right: 0.8rem;
+  height: min-content;
+  width: min-content;
 
-  line-height: 0;
+
+  margin: 0 auto;
+  margin-left: 31.5rem;
+  margin-top: 1rem;
+
   cursor: pointer;
   color: var(--white);
 }

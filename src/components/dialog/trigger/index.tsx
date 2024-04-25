@@ -22,7 +22,11 @@ export function DialogTrigger({
 	return (
 		<>
 			{asChild ? (
-				renderChildren(children, handleOpenModal)
+				renderChildren({
+					children,
+					onClick: handleOpenModal,
+					className: styles.trigger,
+				})
 			) : (
 				<button
 					type="button"
