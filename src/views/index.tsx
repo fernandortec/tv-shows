@@ -11,10 +11,10 @@ import styles from "./index.module.css";
 import { Button } from "@/components/button";
 
 export const Route = createFileRoute("/")({
-	component: () => <ShowsPage />,
+	component: () => <IndexPage />,
 });
 
-function ShowsPage(): JSX.Element {
+function IndexPage(): JSX.Element {
 	return (
 		<main className={styles.main}>
 			<div className={styles.imageRows}>

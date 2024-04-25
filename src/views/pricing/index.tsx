@@ -1,15 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
-import styles from "./pricing.module.css";
-import { Button } from "@/components/button";
+import { createFileRoute } from '@tanstack/react-router';
+import styles from './styles.module.css';
+import { Button } from '@/components/button';
 
-export const Route = createFileRoute("/pricing")({
+export const Route = createFileRoute('/pricing/')({
 	component: Pricing,
 });
 
 function Pricing(): JSX.Element {
-	const formatPrice = new Intl.NumberFormat("pt-BR", {
-		style: "currency",
-		currency: "BRL",
+	const formatPrice = new Intl.NumberFormat('pt-BR', {
+		style: 'currency',
+		currency: 'BRL',
 	});
 
 	return (

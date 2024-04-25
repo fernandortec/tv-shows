@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import styles from "./support.module.css";
+import { createFileRoute } from '@tanstack/react-router';
+import styles from './styles.module.css';
 
-export const Route = createFileRoute("/support")({
+export const Route = createFileRoute('/support/')({
 	component: Support,
 });
 

@@ -10,6 +10,7 @@ export default defineConfig({
 		TanStackRouterVite({
 			routeFileIgnorePrefix: "-",
 			generatedRouteTree: "./src/@types/route-tree.gen.ts",
+			routesDirectory: "./src/views"
 		}),
 	],
 	resolve: {

@@ -10,64 +10,86 @@
 
 // Import Routes
 
-import { Route as rootRoute } from '../views/__root';
-import { Route as SupportImport } from '../views/support';
-import { Route as PricingImport } from '../views/pricing';
-import { Route as IndexImport } from '../views/index';
-import { Route as ShowsIndexImport } from '../views/shows/index';
+import { Route as rootRoute } from './../views/__root'
+import { Route as IndexImport } from './../views/index'
+import { Route as SupportIndexImport } from './../views/support/index'
+import { Route as ShowsIndexImport } from './../views/shows/index'
+import { Route as PricingIndexImport } from './../views/pricing/index'
+import { Route as NotFoundIndexImport } from './../views/not-found/index'
+import { Route as ErrorIndexImport } from './../views/error/index'
 
 // Create/Update Routes
 
-const SupportRoute = SupportImport.update({
-	path: '/support',
-	getParentRoute: () => rootRoute,
-} as any);
-
-const PricingRoute = PricingImport.update({
-	path: '/pricing',
-	getParentRoute: () => rootRoute,
-} as any);
-
 const IndexRoute = IndexImport.update({
-	path: '/',
-	getParentRoute: () => rootRoute,
-} as any);
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SupportIndexRoute = SupportIndexImport.update({
+  path: '/support/',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const ShowsIndexRoute = ShowsIndexImport.update({
-	path: '/shows/',
-	getParentRoute: () => rootRoute,
-} as any);
+  path: '/shows/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PricingIndexRoute = PricingIndexImport.update({
+  path: '/pricing/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const NotFoundIndexRoute = NotFoundIndexImport.update({
+  path: '/not-found/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ErrorIndexRoute = ErrorIndexImport.update({
+  path: '/error/',
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
-	interface FileRoutesByPath {
-		'/': {
-			preLoaderRoute: typeof IndexImport;
-			parentRoute: typeof rootRoute;
-		};
-		'/pricing': {
-			preLoaderRoute: typeof PricingImport;
-			parentRoute: typeof rootRoute;
-		};
-		'/support': {
-			preLoaderRoute: typeof SupportImport;
-			parentRoute: typeof rootRoute;
-		};
-		'/shows/': {
-			preLoaderRoute: typeof ShowsIndexImport;
-			parentRoute: typeof rootRoute;
-		};
-	}
+  interface FileRoutesByPath {
+    '/': {
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/error/': {
+      preLoaderRoute: typeof ErrorIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/not-found/': {
+      preLoaderRoute: typeof NotFoundIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/pricing/': {
+      preLoaderRoute: typeof PricingIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/shows/': {
+      preLoaderRoute: typeof ShowsIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/support/': {
+      preLoaderRoute: typeof SupportIndexImport
+      parentRoute: typeof rootRoute
+    }
+  }
 }
 
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-	IndexRoute,
-	PricingRoute,
-	SupportRoute,
-	ShowsIndexRoute,
-]);
+  IndexRoute,
+  ErrorIndexRoute,
+  NotFoundIndexRoute,
+  PricingIndexRoute,
+  ShowsIndexRoute,
+  SupportIndexRoute,
+])
 
 /* prettier-ignore-end */
