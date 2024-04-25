@@ -1,11 +1,12 @@
 import { genres } from '@/helpers/available-genres';
 
 import { Button } from '@/components/button';
-import { PaginationProgress } from '@/components/progress-bar';
+
 import { ActionCard } from '@/views/shows/_components/-action-card';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef, useState } from 'react';
 import styles from './-genres-section.module.css';
+import { ProgressBar } from '@/components/progress-bar';
 
 export function GenresSection(): JSX.Element {
 	const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -50,10 +51,9 @@ export function GenresSection(): JSX.Element {
 					<ChevronLeft />
 				</Button>
 
-				<PaginationProgress
+				<ProgressBar
 					className={styles.progress}
-					currentValue={scrollPercentage}
-					totalValue={100}
+					value={scrollPercentage}
 				/>
 				<Button variant="icon-only" onClick={() => handleScroll(300)}>
 					<ChevronRight />

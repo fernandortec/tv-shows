@@ -6,11 +6,12 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"security": { "noDangerouslySetInnerHtml": "off" }
 		}
 	},
 	"formatter": {
-		"lineWidth": 80,
+		"lineWidth": 90,
 		"indentWidth": 2,
 		"enabled": true
 	},

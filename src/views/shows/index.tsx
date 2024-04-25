@@ -1,25 +1,28 @@
+import { Button } from '@/components/button';
+import { genresMap } from '@/helpers/available-genres';
 import { findAllShows } from '@/services/find-all-shows';
 import { getMainShow } from '@/services/get-main-show';
-import { Button } from '@/components/button';
 import { GenresSection } from '@/views/shows/_components/-genres-section';
 import { ShowCard } from '@/views/shows/_components/-show-card';
-import {
-	type SearchShowsSchema,
-	searchShowsSchema,
-} from '@/services/schemas/shows';
 import { useQuery } from '@tanstack/react-query';
 import { Link, createFileRoute } from '@tanstack/react-router';
-import { Plus, ThumbsUp, Volume2Icon } from 'lucide-react';
-import styles from './index.module.css';
 import { useEffect } from 'react';
-import { genresMap } from '@/helpers/available-genres';
-import { ShowDetailsDialog } from '@/views/shows/_components/-show-details-dialog';
+
+import { MainShowBanner } from '@/views/shows/(components)/main-show-banner/_index';
+import { z } from 'zod';
+import styles from './styles.module.css';
+
+const searchShowsSchema = z.object({
+	genre: z.string().optional(),
+	name: z.string().optional(),
+});
+
+type SearchShowsSchema = z.infer<typeof searchShowsSchema>;
 
 export const Route = createFileRoute('/shows/')({
 	component: () => <ShowsPage />,
-	validateSearch: (searchParams: {
-		[key: string]: string;
-	}): SearchShowsSchema => searchShowsSchema.parse(searchParams),
+	validateSearch: (searchParams: Record<string, string>): SearchShowsSchema =>
+		searchShowsSchema.parse(searchParams),
 });
 
 function ShowsPage(): JSX.Element {
@@ -44,43 +47,7 @@ function ShowsPage(): JSX.Element {
 
 	return (
 		<main>
-			<div
-				className={`${styles.mainImageContainer} fadeOutFromTop fadeOutFromBottom`}
-			>
-				<img alt="" src={mainShow?.image.original} />
-
-				<div className={styles.about}>
-					<h3>{mainShow?.name}</h3>
-
-					{mainShow?.summary && (
-						// biome-ignore lint/security/noDangerouslySetInnerHtml:
-						<div dangerouslySetInnerHTML={{ __html: mainShow?.summary }} />
-					)}
-
-					<footer className={styles.actions}>
-						{mainShow ? (
-							<ShowDetailsDialog show={mainShow} asChild={false}>
-								<Button variant="play-now">Ver agora</Button>
-							</ShowDetailsDialog>
-						) : (
-							<Button variant="play-now">Ver agora</Button>
-						)}
-
-						<div>
-							<Button variant="icon-only">
-								<Plus />
-							</Button>
-							<Button variant="icon-only">
-								<ThumbsUp />
-							</Button>
-
-							<Button variant="icon-only">
-								<Volume2Icon />
-							</Button>
-						</div>
-					</footer>
-				</div>
-			</div>
+			<MainShowBanner show={mainShow} />
 
 			<section className={styles.cardsSection} id="cards">
 				<Button variant="primary">Séries</Button>
@@ -98,9 +65,7 @@ function ShowsPage(): JSX.Element {
 								{genre && `e com o gênero ${genresMap[genre]}`}
 							</span>
 						)}
-						{genre && (
-							<span>Listando séries com o gênero {genresMap[genre]}</span>
-						)}
+						{genre && <span>Listando séries com o gênero {genresMap[genre]}</span>}
 					</div>
 
 					<Link to="/shows">Remover filtros</Link>

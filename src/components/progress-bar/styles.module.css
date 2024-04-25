@@ -4,7 +4,6 @@
   border-radius: 99999px;
   width: 300px;
   height: 5px;
-  transform: translateZ(0);
 }
 
 progress::-webkit-progress-value {
