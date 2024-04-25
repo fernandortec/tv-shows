@@ -1,13 +1,23 @@
-import { useContext, useEffect, useRef, type ReactNode } from "react";
-import styles from "./styles.module.css";
 import { DialogContext } from "@/contexts/dialog-context";
+import {
+	type CSSProperties,
+	useContext,
+	useEffect,
+	useRef,
+	type ReactNode,
+} from "react";
+import styles from "./styles.module.css";
 
 interface DialogContentProps {
 	children: ReactNode;
+	style?: CSSProperties;
 }
 
-export function DialogContent({ children }: DialogContentProps): JSX.Element {
-	const [showModal] = useContext(DialogContext);
+export function DialogContent({
+	children,
+	style,
+}: DialogContentProps): JSX.Element {
+	const [showModal, setShowModal] = useContext(DialogContext);
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
 	useEffect(() => {
@@ -19,8 +29,10 @@ export function DialogContent({ children }: DialogContentProps): JSX.Element {
 	}, [showModal]);
 
 	return (
-		<dialog data-modal ref={dialogRef}>
-			<div className={styles.content}>{children}</div>
+		<dialog data-modal ref={dialogRef} onClose={() => setShowModal(false)}>
+			<div className={styles.content} style={style}>
+				{children}
+			</div>
 		</dialog>
 	);
 }

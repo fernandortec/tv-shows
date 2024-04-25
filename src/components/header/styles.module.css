@@ -32,8 +32,7 @@
 }
 
 @media(max-width: 960px) {
-  .header {
-    margin-top: 0px
+  .header {padding: 0px 2rem;
   }
 
   .logo {

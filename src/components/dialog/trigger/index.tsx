@@ -7,11 +7,13 @@ import styles from "./styles.module.css";
 interface DialogTriggerProps {
 	children: ReactNode;
 	asChild?: boolean;
+	className?: string;
 }
 
 export function DialogTrigger({
 	children,
 	asChild = false,
+	className,
 }: DialogTriggerProps): JSX.Element {
 	const [_, setShowModal] = useContext(DialogContext);
 
@@ -20,7 +22,7 @@ export function DialogTrigger({
 	}
 
 	return (
-		<>
+		<div className={className}>
 			{asChild ? (
 				renderChildren({
 					children,
@@ -36,6 +38,6 @@ export function DialogTrigger({
 					{children}
 				</button>
 			)}
-		</>
+		</div>
 	);
 }

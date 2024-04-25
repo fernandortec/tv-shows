@@ -4,23 +4,7 @@
   cursor: pointer;
 }
 
-.content {
-  width: 100vw;
-  height: 100vh;
-  padding: 3rem;
-  background: var(--primary-500);
-
-  position: fixed;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-
-  z-index: 20;
-}
-
-.content ul {
+.list {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,13 +18,12 @@
   list-style: none;
 }
 
-.content ul li {
+.list li {
   font-size: 1.6rem;
   font-weight: bold;
 }
   
 @media(min-width: 960px) {
-
   .trigger,
   .content {
     display: none;
