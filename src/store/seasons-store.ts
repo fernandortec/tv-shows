@@ -1,17 +1,17 @@
-import { create } from "zustand";
+import { create } from 'zustand';
+
+interface SeasonInStore {
+	id: number | null;
+	number: number | null;
+}
 
 export interface SeasonStore {
-	currentSeasonId: number | null;
-	currentSeasonNumber: number | null;
-	changeCurrentSeasonId: (season: number | null) => void;
-	changeCurrentSeasonNumber: (number: number | null) => void;
+	currentSeason: SeasonInStore | null;
+	changeCurrentSeason: (season: SeasonInStore | null) => void;
 }
 
 export const useSeasonStore = create<SeasonStore>((set) => ({
-	currentSeasonId: null,
-	currentSeasonNumber: null,
-	changeCurrentSeasonNumber: (number: number | null) =>
-		set(() => ({ currentSeasonNumber: number })),
-	changeCurrentSeasonId: (season: number | null) =>
-		set(() => ({ currentSeasonId: season })),
+	currentSeason: null,
+	changeCurrentSeason: (season: SeasonInStore | null) =>
+		set(() => ({ currentSeason: season })),
 }));

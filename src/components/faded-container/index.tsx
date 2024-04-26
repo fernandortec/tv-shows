@@ -6,11 +6,13 @@ type Direction = 'top' | 'bottom' | 'both';
 export interface FadedContainerProps {
 	direction: Direction;
 	children: ReactNode;
+	containerClassName?: string;
 }
 
 export function FadedContainer({
 	direction,
 	children,
+	containerClassName,
 }: FadedContainerProps): JSX.Element {
 	const classNameBasedOnDirection: { [key in Direction]: string } = {
 		both: `${styles.fadeOutFromBottom} ${styles.fadeOutFromTop}`,
@@ -20,5 +22,11 @@ export function FadedContainer({
 
 	const className = classNameBasedOnDirection[direction];
 
-	return <div className={className}>{children}</div>;
+	return (
+		<div className={containerClassName}>
+			<div>
+				<div className={className}>{children}</div>
+			</div>
+		</div>
+	);
 }

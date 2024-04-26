@@ -1,13 +1,13 @@
-.container {
-  position: relative;
-}
-
-.close {
+.wrapper {
   position: absolute;
 
   top: 0px;
   right: 0px;
 
+  padding: 1rem;
+}
+
+.close {
   height: 1.5rem;
   width: 1.5rem;
 

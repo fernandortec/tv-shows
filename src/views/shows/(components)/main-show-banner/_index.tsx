@@ -1,11 +1,10 @@
 import { Button } from '@/components/button';
-
 import { Plus, ThumbsUp, Volume2Icon } from 'lucide-react';
 
 import styles from './styles.module.css';
 import { FadedContainer } from '@/components/faded-container';
-import { ShowDetailsDialog } from '@/views/shows/(components)/show-details-dialog/_index';
 import type { Show } from '@/services/shows/shows-model';
+import { ShowDetailsDialog } from '@/views/shows/_components/-show-details-dialog';
 
 interface MainShowBannerProps {
 	show?: Show;

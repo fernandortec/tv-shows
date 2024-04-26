@@ -8,26 +8,24 @@ import { Clock } from 'lucide-react';
 import { episodesServices } from '@/services/episodes/episodes-services';
 
 export function Episodes(): JSX.Element {
-	const currentSeasonId = useSeasonStore((state) => state.currentSeasonId);
-	const currentSeasonNumber = useSeasonStore((state) => state.currentSeasonNumber);
+	const currentSeason = useSeasonStore((state) => state.currentSeason);
 
 	const { data: episodes } = useQuery({
-		queryKey: ['shows', 'episodes', currentSeasonId],
-		queryFn: () => episodesServices.listEpisodes(currentSeasonId ?? 0),
-		enabled: !!currentSeasonId,
+		queryKey: ['shows', 'episodes', currentSeason?.id],
+		queryFn: () => episodesServices.listEpisodes(currentSeason?.id ?? 0),
+		enabled: !!currentSeason?.id,
 	});
 
 	return (
 		<div className={styles.container}>
 			<header>
 				<p>
-					Temporada {currentSeasonNumber ?? 1}
+					Temporada {currentSeason?.number ?? 1}
 					<span> {episodes?.length} episódios</span>
 				</p>
 			</header>
 
 			<ul className={styles.episodesList}>
-				{' '}
 				<hr />
 				{episodes?.map((episode) => (
 					<li key={episode.id}>
@@ -48,7 +46,6 @@ export function Episodes(): JSX.Element {
 									)}
 								</header>
 								<div
-									/* biome-ignore lint/security/noDangerouslySetInnerHtml: */
 									dangerouslySetInnerHTML={{
 										__html: truncateString(episode.summary, 300),
 									}}

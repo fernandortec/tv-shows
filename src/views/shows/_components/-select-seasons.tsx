@@ -2,8 +2,9 @@ import { useSeasonStore } from '@/store/seasons-store';
 import { useQuery } from '@tanstack/react-query';
 import { ChevronDownIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import styles from './-select-seasons.module.css';
 import { seasonsServices } from '@/services/seasons/seasons-services';
+
+import styles from './-select-seasons.module.css';
 
 interface SelectSeasonProps {
 	showId: number;
@@ -12,13 +13,8 @@ interface SelectSeasonProps {
 export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 	const [isActive, setIsActive] = useState<boolean>(false);
 
-	const changeCurrentSeasonId = useSeasonStore((state) => state.changeCurrentSeasonId);
-	const changeCurrentSeasonNumber = useSeasonStore(
-		(state) => state.changeCurrentSeasonNumber
-	);
-
-	const currentSeasonId = useSeasonStore((state) => state.currentSeasonId);
-	const currentSeasonNumber = useSeasonStore((state) => state.currentSeasonNumber);
+	const changeCurrentSeason = useSeasonStore((state) => state.changeCurrentSeason);
+	const currentSeason = useSeasonStore((state) => state.currentSeason);
 
 	const { data: seasons, isSuccess } = useQuery({
 		queryKey: ['shows', 'seasons', showId],
@@ -27,17 +23,16 @@ export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 
 	useEffect(() => {
 		if (isSuccess) {
-			changeCurrentSeasonId(seasons[0].id);
+			changeCurrentSeason({ id: seasons[0].id, number: 1 });
 		}
-	}, [isSuccess, changeCurrentSeasonId, seasons?.[0].id]);
+	}, [isSuccess, changeCurrentSeason, seasons?.[0].id]);
 
 	function changeVisibility(): void {
 		setIsActive((state) => !state);
 	}
 
 	function handleSelectSeason(seasonId: number, seasonNumber: number): void {
-		changeCurrentSeasonId(seasonId);
-		changeCurrentSeasonNumber(seasonNumber);
+		changeCurrentSeason({ id: seasonId, number: seasonNumber });
 	}
 
 	return (
@@ -49,7 +44,7 @@ export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 					type="button"
 					onClick={changeVisibility}
 				>
-					Temporada {currentSeasonNumber ?? 1}
+					Temporada {currentSeason?.number ?? 1}
 					<ChevronDownIcon />
 				</button>
 			</div>
@@ -61,7 +56,7 @@ export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 							type="submit"
 							key={season.id}
 							className={styles.dropdownItem}
-							data-active={currentSeasonId === season.id}
+							data-active={currentSeason?.id === season.id}
 							onClick={() => handleSelectSeason(season.id, season.number)}
 						>
 							<p>Temporada {idx + 1}</p>

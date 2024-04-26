@@ -1,4 +1,5 @@
 import { Button } from '@/components/button';
+import { useSeasonStore } from '@/store/seasons-store';
 import { Episodes } from '@/views/shows/_components/-episodes';
 import { SelectSeason } from '@/views/shows/_components/-select-seasons';
 import { ShowInfo } from '@/views/shows/_components/-show-info';
@@ -6,12 +7,11 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { ArrowLeft, Plus, ThumbsUp, Volume2Icon, X } from 'lucide-react';
 import type { ReactNode } from 'react';
 import styles from './-show-details-dialog.module.css';
-import type { Show } from '@/services/schemas/shows';
-import { useSeasonStore } from '@/store/seasons-store';
+import type { Show } from '@/services/shows/shows-model';
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;
-	show?: Show;
+	show: Show;
 	asChild?: boolean;
 }
 
@@ -20,16 +20,10 @@ export function ShowDetailsDialog({
 	show,
 	asChild = true,
 }: ShowDetailsDialogProps): JSX.Element {
-	const changeCurrentSeasonId = useSeasonStore(
-		(state) => state.changeCurrentSeasonId
-	);
-	const changeCurrentSeasonNumber = useSeasonStore(
-		(state) => state.changeCurrentSeasonNumber
-	);
+	const changeCurrentSeason = useSeasonStore((state) => state.changeCurrentSeason);
 
 	function handleCloseDialog(): void {
-		changeCurrentSeasonId(null);
-		changeCurrentSeasonNumber(null);
+		changeCurrentSeason(null);
 	}
 
 	return (
@@ -45,10 +39,7 @@ export function ShowDetailsDialog({
 					</Dialog.Close>
 
 					<Dialog.Close asChild>
-						<ArrowLeft
-							style={{ cursor: 'pointer' }}
-							onClick={handleCloseDialog}
-						/>
+						<ArrowLeft style={{ cursor: 'pointer' }} onClick={handleCloseDialog} />
 					</Dialog.Close>
 
 					<div className={styles.mainImageContainer}>
@@ -60,7 +51,6 @@ export function ShowDetailsDialog({
 							<h4>{show?.name}</h4>
 
 							{show?.summary && (
-								// biome-ignore lint/security/noDangerouslySetInnerHtml:
 								<div dangerouslySetInnerHTML={{ __html: show?.summary }} />
 							)}
 

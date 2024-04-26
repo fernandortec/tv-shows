@@ -77,3 +77,9 @@ ul {
   }
 
 }
+
+body[data-open="true"] {
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 15px;
+}
