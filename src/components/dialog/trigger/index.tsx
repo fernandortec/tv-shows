@@ -8,16 +8,19 @@ interface DialogTriggerProps {
 	children: ReactNode;
 	asChild?: boolean;
 	className?: string;
+	onTriggerClick?: () => void;
 }
 
 export function DialogTrigger({
 	children,
 	asChild = false,
 	className,
+	onTriggerClick,
 }: DialogTriggerProps): JSX.Element {
 	const [_, setShowModal] = useContext(DialogContext);
 
 	function handleOpenModal(): void {
+		onTriggerClick?.();
 		setShowModal(true);
 	}
 
@@ -30,7 +33,7 @@ export function DialogTrigger({
 					className: `${styles.trigger} ${className}`,
 				})
 			) : (
-				// biome-ignore lint/a11y/useKeyWithClickEvents: 
+				// biome-ignore lint/a11y/useKeyWithClickEvents:
 				<div onClick={handleOpenModal}>{children}</div>
 			)}
 		</div>

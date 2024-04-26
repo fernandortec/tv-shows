@@ -2,7 +2,7 @@ import { Button } from '@/components/button';
 import { useSeasonStore } from '@/store/seasons-store';
 
 import { ArrowLeft, Plus, ThumbsUp, Volume2Icon, X } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import type { Show } from '@/services/shows/shows-model';
 import { SelectSeason } from '@/views/shows/(components)/select-seasons/_index';
 
@@ -25,22 +25,31 @@ export function ShowDetailsDialog({
 	children,
 	show,
 }: ShowDetailsDialogProps): JSX.Element {
+	const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+
 	const changeCurrentSeason = useSeasonStore((state) => state.changeCurrentSeason);
+
+	function handleOpenDialog(): void {
+		setIsDialogOpen(true);
+	}
 
 	function handleCloseDialog(): void {
 		changeCurrentSeason(null);
+		setIsDialogOpen(false);
 	}
 
 	return (
 		<Dialog>
-			<DialogTrigger className={styles.trigger}>{children}</DialogTrigger>
+			<DialogTrigger onTriggerClick={handleOpenDialog} className={styles.trigger}>
+				{children}
+			</DialogTrigger>
 			<DialogContent className={`${styles.content}`}>
 				<DialogClose>
 					<X size={24} onClick={handleCloseDialog} />
 				</DialogClose>
 
-				<DialogClose asChild>
-					<ArrowLeft style={{ cursor: 'pointer' }} onClick={handleCloseDialog} />
+				<DialogClose style={{ left: '0px' }} asChild>
+					<ArrowLeft onClick={handleCloseDialog} />
 				</DialogClose>
 
 				<FadedContainer direction="both">
@@ -77,7 +86,7 @@ export function ShowDetailsDialog({
 					<section className={styles.episodesAndInfoSection}>
 						<div className={styles.episodesSection}>
 							<header>
-								<SelectSeason showId={show.id} />
+								<SelectSeason showId={show.id} isDialogOpen={isDialogOpen} />
 							</header>
 
 							<EpisodesList />

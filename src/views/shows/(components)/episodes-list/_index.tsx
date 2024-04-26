@@ -13,7 +13,7 @@ export function EpisodesList(): JSX.Element {
 
 	const { data: episodes } = useQuery({
 		queryKey: ['shows', 'episodes', currentSeason?.id],
-		queryFn: () => episodesServices.listEpisodes(currentSeason?.id ?? 0),
+		queryFn: () => episodesServices.listEpisodes(Number(currentSeason?.id)),
 		enabled: !!currentSeason?.id,
 	});
 
@@ -48,7 +48,7 @@ export function EpisodesList(): JSX.Element {
 								</header>
 								<div
 									dangerouslySetInnerHTML={{
-										__html: episode?.summary,
+										__html: truncateString(episode?.summary, 300),
 									}}
 								/>
 							</div>

@@ -47,6 +47,10 @@
   border-style: none;
 }
 
+.arrowLeft {
+  left: 100px;
+}
+
 .about {
   text-align: center;
   position: absolute;

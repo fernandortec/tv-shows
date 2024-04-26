@@ -8,9 +8,10 @@ import styles from './styles.module.css';
 
 interface SelectSeasonProps {
 	showId: number;
+	isDialogOpen: boolean;
 }
 
-export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
+export function SelectSeason({ showId, isDialogOpen }: SelectSeasonProps): JSX.Element {
 	const [isActive, setIsActive] = useState<boolean>(false);
 
 	const changeCurrentSeason = useSeasonStore((state) => state.changeCurrentSeason);
@@ -19,9 +20,8 @@ export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 	const { data: seasons, isSuccess } = useQuery({
 		queryKey: ['shows', 'seasons', showId],
 		queryFn: () => seasonsServices.listSeasons(showId),
-		enabled: isActive
+		enabled: isDialogOpen,
 	});
-
 
 	useEffect(() => {
 		if (isSuccess) {
@@ -35,6 +35,7 @@ export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 
 	function handleSelectSeason(seasonId: number, seasonNumber: number): void {
 		changeCurrentSeason({ id: seasonId, number: seasonNumber });
+		setIsActive(false)
 	}
 
 	return (
