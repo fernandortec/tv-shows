@@ -27,11 +27,3 @@ export interface Episode {
 		};
 	};
 }
-export async function listAllEpisodes(seasonId: number): Promise<Episode[]> {
-	const response = await fetch(
-		`https://api.tvmaze.com/seasons/${seasonId}/episodes`,
-	);
-	const data = await response.json();
-
-	return data;
-}

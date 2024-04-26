@@ -1,3 +1,5 @@
+
+
 export interface Season {
 	id: number;
 	url: string;
@@ -27,13 +29,4 @@ export interface Season {
 			href: string;
 		};
 	};
-}
-
-export async function listAllSeasons(showId: number): Promise<Season[]> {
-	const response = await fetch(
-		`https://api.tvmaze.com/shows/${showId}/seasons`,
-	);
-	const data = await response.json();
-
-	return data;
 }

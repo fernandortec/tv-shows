@@ -8,16 +8,10 @@ import { useQuery } from '@tanstack/react-query';
 import { Link, createFileRoute } from '@tanstack/react-router';
 import { useEffect } from 'react';
 
+import { searchShowsSchema, type SearchShowsSchema } from '@/services/schemas/shows';
 import { MainShowBanner } from '@/views/shows/(components)/main-show-banner/_index';
-import { z } from 'zod';
+
 import styles from './styles.module.css';
-
-const searchShowsSchema = z.object({
-	genre: z.string().optional(),
-	name: z.string().optional(),
-});
-
-type SearchShowsSchema = z.infer<typeof searchShowsSchema>;
 
 export const Route = createFileRoute('/shows/')({
 	component: () => <ShowsPage />,
@@ -45,24 +39,29 @@ function ShowsPage(): JSX.Element {
 		element?.scrollIntoView();
 	}, [name, genre]);
 
+	const doesUrlHaveNoFilters = !name && !genre
+	const noShowsFound = allShows?.length === 0;
+
 	return (
 		<main>
 			<MainShowBanner show={mainShow} />
 
 			<section className={styles.cardsSection} id="cards">
-				<Button variant="primary">Séries</Button>
-				
+				<Button disabled variant="primary">
+					Séries
+				</Button>
+
 				<GenresSection />
 
 				<div className={styles.headerSection}>
 					<div>
 						<p className={styles.showsTitle} id="shows-title">
-							Navegue entre as séries:{' '}
+							Navegue entre as séries:
 						</p>
-						{!name && !genre && <span>Listando todas as séries</span>}
+						{doesUrlHaveNoFilters && <span>Listando todas as séries</span>}
 						{name && (
 							<span>
-								Listando séries com o nome {name}{' '}
+								Listando séries com o nome {name}
 								{genre && `e com o gênero ${genresMap[genre]}`}
 							</span>
 						)}
@@ -71,12 +70,13 @@ function ShowsPage(): JSX.Element {
 
 					<Link to="/shows">Remover filtros</Link>
 				</div>
-				{allShows?.length === 0 && (
+				{noShowsFound && (
 					<p className={styles.error}>
 						Não foi encontrado nenhuma série com este nome/gênero{' '}
 						<Link to="/shows">Remover filtros</Link>
 					</p>
 				)}
+				
 				<div className={styles.allShowsSection}>
 					{allShows?.map((show) => (
 						<ShowCard key={show.id} show={show} />

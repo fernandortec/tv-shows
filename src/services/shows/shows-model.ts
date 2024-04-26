@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 export interface Show {
 	id: number;
 	url: string;
@@ -55,9 +53,35 @@ export interface Show {
 	};
 }
 
-export const searchShowsSchema = z.object({
-	genre: z.string().optional(),
-	name: z.string().optional(),
-});
+interface Country {
+	name: string;
+	code: string;
+	timezone: string;
+}
 
-export type SearchShowsSchema = z.infer<typeof searchShowsSchema>;
+interface Image {
+	medium: string;
+	original: string;
+}
+
+interface Person {
+	id: number;
+	url: string;
+	name: string;
+	country: Country;
+	birthday: string;
+	deathday: string | null;
+	gender: string;
+	image: Image;
+	updated: number;
+	_links: {
+		self: {
+			href: string;
+		};
+	};
+}
+
+export interface Crew {
+	type: string;
+	person: Person;
+}
