@@ -13,7 +13,19 @@
   font-weight: bold;
 }
 
+.container p {
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
 .container a {
   color: var(--secondary-500);
   margin-left: 4px;
+}
+
+@media(max-width: 768px) {
+  .container {
+    padding: 6rem;
+  }
+
 }

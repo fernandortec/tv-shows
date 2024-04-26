@@ -129,5 +129,10 @@
   .episodeContainer {
     flex-direction: column;
   }
-
+  .container header p {
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
 }

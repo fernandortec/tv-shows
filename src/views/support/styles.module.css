@@ -22,3 +22,14 @@
   color: var(--secondary-500);
   margin-left: 4px;
 }
+
+@media(max-width: 768px) {
+  .container {
+    padding: 6rem;
+  }
+
+  .container h1 {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+}

@@ -1,7 +1,29 @@
+.content {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+
+  padding: 3rem;
+  background: var(--primary-500);
+
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .trigger {
   color: var(--white);
   background: transparent;
-  cursor: pointer;
 }
 
 .list {
@@ -18,6 +40,10 @@
 .list li {
   font-size: 1.6rem;
   font-weight: bold;
+}
+
+.navLink {
+  margin: 0 auto;
 }
 
 @media(min-width: 960px) {

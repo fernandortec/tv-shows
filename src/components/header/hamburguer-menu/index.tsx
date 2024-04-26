@@ -12,11 +12,11 @@ export function HamburguerMenuDialog(): JSX.Element {
 			<DialogTrigger className={styles.trigger} asChild>
 				<img src="/assets/hamburguer-menu.svg" alt="Hamburguer Menu Icon" />
 			</DialogTrigger>
-			<DialogContent style={{ width: '100vw', height: '100vh' }}>
+			<DialogContent className={styles.content}>
 				<DialogClose />
 
 				<ul className={styles.list}>
-					<DialogClose asChild>
+					<DialogClose asChild style={{ position: 'relative', display: 'block' }}>
 						<Link
 							to="/"
 							className={styles.navLink}
@@ -26,7 +26,7 @@ export function HamburguerMenuDialog(): JSX.Element {
 						</Link>
 					</DialogClose>
 
-					<DialogClose asChild>
+					<DialogClose asChild style={{ position: 'relative', display: 'block' }}>
 						<Link
 							to="/shows"
 							className={styles.navLink}
@@ -36,7 +36,7 @@ export function HamburguerMenuDialog(): JSX.Element {
 						</Link>
 					</DialogClose>
 
-					<DialogClose asChild>
+					<DialogClose asChild style={{ position: 'relative', display: 'block' }}>
 						<Link
 							to="/support"
 							className={styles.navLink}
@@ -46,7 +46,7 @@ export function HamburguerMenuDialog(): JSX.Element {
 						</Link>
 					</DialogClose>
 
-					<DialogClose asChild>
+					<DialogClose asChild style={{ position: 'relative', display: 'block' }}>
 						<Link
 							to="/pricing"
 							className={styles.navLink}
