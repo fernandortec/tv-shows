@@ -1,9 +1,9 @@
-import { listAllSeasons } from "@/services/list-seasons";
-import { useSeasonStore } from "@/store/seasons-store";
-import { useQuery } from "@tanstack/react-query";
-import { ChevronDownIcon } from "lucide-react";
-import { useEffect, useState } from "react";
-import styles from "./-select-seasons.module.css";
+import { useSeasonStore } from '@/store/seasons-store';
+import { useQuery } from '@tanstack/react-query';
+import { ChevronDownIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import styles from './-select-seasons.module.css';
+import { seasonsServices } from '@/services/seasons/seasons-services';
 
 interface SelectSeasonProps {
 	showId: number;
@@ -12,21 +12,17 @@ interface SelectSeasonProps {
 export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 	const [isActive, setIsActive] = useState<boolean>(false);
 
-	const changeCurrentSeasonId = useSeasonStore(
-		(state) => state.changeCurrentSeasonId,
-	);
+	const changeCurrentSeasonId = useSeasonStore((state) => state.changeCurrentSeasonId);
 	const changeCurrentSeasonNumber = useSeasonStore(
-		(state) => state.changeCurrentSeasonNumber,
+		(state) => state.changeCurrentSeasonNumber
 	);
 
 	const currentSeasonId = useSeasonStore((state) => state.currentSeasonId);
-	const currentSeasonNumber = useSeasonStore(
-		(state) => state.currentSeasonNumber,
-	);
+	const currentSeasonNumber = useSeasonStore((state) => state.currentSeasonNumber);
 
 	const { data: seasons, isSuccess } = useQuery({
-		queryKey: ["shows", "seasons", showId],
-		queryFn: () => listAllSeasons(showId),
+		queryKey: ['shows', 'seasons', showId],
+		queryFn: () => seasonsServices.listSeasons(showId),
 	});
 
 	useEffect(() => {

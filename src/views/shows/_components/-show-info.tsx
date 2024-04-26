@@ -1,12 +1,12 @@
-import { getShowCrew } from "@/services/get-show-crew";
+import { genresMap } from '@/helpers/available-genres';
+import { languagesMap } from '@/helpers/languages-map';
 
-import { genresMap } from "@/helpers/available-genres";
-import { languagesMap } from "@/helpers/languages-map";
-import type { Show } from "@/services/schemas/shows";
-import { useQuery } from "@tanstack/react-query";
-import { Blocks, Calendar, Languages, Star, StarIcon } from "lucide-react";
-import { useState } from "react";
-import styles from "./-show-info.module.css";
+import { useQuery } from '@tanstack/react-query';
+import { Blocks, Calendar, Languages, Star, StarIcon } from 'lucide-react';
+import { useState } from 'react';
+import styles from './-show-info.module.css';
+import type { Show } from '@/services/shows/shows-model';
+import { showsServices } from '@/services/shows/shows-services';
 
 interface ShowInfoProps {
 	show: Show;
@@ -14,18 +14,16 @@ interface ShowInfoProps {
 
 export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
 	const { data: crew } = useQuery({
-		queryKey: ["shows", "crew"],
-		queryFn: () => getShowCrew(show.id),
+		queryKey: ['shows', 'crew'],
+		queryFn: () => showsServices.getShowCrew(show.id),
 	});
 
-	const creator = crew?.find((person) => person.type === "Creator");
+	const creator = crew?.find((person) => person.type === 'Creator');
 
-	const [imgSrc, setImgSrc] = useState<string | undefined>(
-		"/assets/tv-white.svg",
-	);
+	const [imgSrc, setImgSrc] = useState<string | undefined>('/assets/tv-white.svg');
 
 	const onError = () => {
-		setImgSrc("https://cdn-icons-png.freepik.com/512/6596/6596121.png");
+		setImgSrc('https://cdn-icons-png.freepik.com/512/6596/6596121.png');
 	};
 
 	return (
@@ -35,9 +33,7 @@ export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
 					<Calendar size={18} />
 					Data de lançamento
 				</span>
-				<p className={styles.paragraphData}>
-					{new Date(show.premiered).getFullYear()}
-				</p>
+				<p className={styles.paragraphData}>{new Date(show.premiered).getFullYear()}</p>
 			</header>
 
 			<div>
@@ -85,7 +81,7 @@ export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
 				<div className={styles.personContainer}>
 					<img src={imgSrc} alt="" onError={onError} />
 					<div>
-						<p>{creator?.person.name ?? "Não mencionado"}</p>
+						<p>{creator?.person.name ?? 'Não mencionado'}</p>
 					</div>
 				</div>
 			</div>

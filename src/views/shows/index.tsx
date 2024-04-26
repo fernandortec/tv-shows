@@ -1,17 +1,17 @@
 import { Button } from '@/components/button';
 import { genresMap } from '@/helpers/available-genres';
-import { findAllShows } from '@/services/find-all-shows';
-import { getMainShow } from '@/services/get-main-show';
+
 import { GenresSection } from '@/views/shows/_components/-genres-section';
 import { ShowCard } from '@/views/shows/_components/-show-card';
 import { useQuery } from '@tanstack/react-query';
 import { Link, createFileRoute } from '@tanstack/react-router';
 import { useEffect } from 'react';
 
-import { searchShowsSchema, type SearchShowsSchema } from '@/services/schemas/shows';
 import { MainShowBanner } from '@/views/shows/(components)/main-show-banner/_index';
 
 import styles from './styles.module.css';
+import { type SearchShowsSchema, searchShowsSchema } from '@/views/shows/(validators)/_index';
+import { showsServices } from '@/services/shows/shows-services';
 
 export const Route = createFileRoute('/shows/')({
 	component: () => <ShowsPage />,
@@ -24,12 +24,12 @@ function ShowsPage(): JSX.Element {
 
 	const { data: mainShow } = useQuery({
 		queryKey: ['shows', 'main'],
-		queryFn: getMainShow,
+		queryFn: () => showsServices.getMainShow(169),
 	});
 
 	const { data: allShows } = useQuery({
 		queryKey: ['shows', name, genre],
-		queryFn: () => findAllShows(name, genre),
+		queryFn: () => showsServices.findAllShows(name, genre),
 	});
 
 	useEffect(() => {
@@ -39,7 +39,7 @@ function ShowsPage(): JSX.Element {
 		element?.scrollIntoView();
 	}, [name, genre]);
 
-	const doesUrlHaveNoFilters = !name && !genre
+	const doesUrlHaveNoFilters = !name && !genre;
 	const noShowsFound = allShows?.length === 0;
 
 	return (
@@ -76,7 +76,7 @@ function ShowsPage(): JSX.Element {
 						<Link to="/shows">Remover filtros</Link>
 					</p>
 				)}
-				
+
 				<div className={styles.allShowsSection}>
 					{allShows?.map((show) => (
 						<ShowCard key={show.id} show={show} />
