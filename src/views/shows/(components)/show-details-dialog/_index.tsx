@@ -14,13 +14,11 @@ import { ExtraShowInfo } from '@/views/shows/(components)/show-info/_index';
 interface ShowDetailsDialogProps {
 	children: ReactNode;
 	show: Show;
-	asChild?: boolean;
 }
 
 export function ShowDetailsDialog({
 	children,
 	show,
-	asChild = true,
 }: ShowDetailsDialogProps): JSX.Element {
 	const changeCurrentSeason = useSeasonStore((state) => state.changeCurrentSeason);
 
@@ -30,7 +28,7 @@ export function ShowDetailsDialog({
 
 	return (
 		<Dialog.Root>
-			<Dialog.Trigger asChild={asChild} className={styles.trigger}>
+			<Dialog.Trigger  className={styles.trigger}>
 				{children}
 			</Dialog.Trigger>
 			<Dialog.Portal>
@@ -53,7 +51,7 @@ export function ShowDetailsDialog({
 							<h4>{show?.name}</h4>
 
 							{show?.summary && (
-								<div dangerouslySetInnerHTML={{ __html: show?.summary }} />
+								<div className={styles.summary} dangerouslySetInnerHTML={{ __html: show?.summary }} />
 							)}
 
 							<footer className={styles.actions}>

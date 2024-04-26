@@ -55,6 +55,8 @@
   z-index: 20;
 }
 
+
+
 .about * {
   margin: auto;
 }
@@ -96,7 +98,6 @@
   grid-template-columns: repeat(7, 1fr);
   gap: 1.25rem;
 
-
   margin-top: 6rem;
 }
 
@@ -121,6 +122,17 @@
   font-weight: 600;
 }
 
+.summary {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  text-align: start;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 @media(max-width: 1400px) {
   .episodesAndInfoSection {
     grid-template-columns: repeat(6, 1fr);
@@ -138,5 +150,11 @@
 
   .episodesSection {
     grid-column: span 1;
+  }
+}
+
+@media(max-width:768px) {
+  .actions {
+    flex-direction: column;
   }
 }

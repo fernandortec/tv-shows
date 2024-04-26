@@ -13,10 +13,9 @@
   position: absolute;
   left: 0;
   right: 0;
-
   bottom: 12rem;
-  text-align: center;
 
+  text-align: center;
   z-index: 20;
 }
 
@@ -35,8 +34,18 @@
   color: var(--white);
   opacity: 0.67;
 
-
   width: 80%;
+}
+
+.summary {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  text-align: start;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .actions {
@@ -55,4 +64,10 @@
   justify-items: center;
 
   gap: 1.25rem;
+}
+
+@media(max-width:768px) {
+  .actions {
+    flex-direction: column;
+  }
 }

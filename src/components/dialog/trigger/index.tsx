@@ -1,8 +1,8 @@
-import { DialogContext } from "@/contexts/dialog-context";
-import { useContext, type ReactNode } from "react";
+import { DialogContext } from '@/contexts/dialog-context';
+import { useContext, type ReactNode } from 'react';
 
-import { renderChildren } from "@/helpers/render-children";
-import styles from "./styles.module.css";
+import { renderChildren } from '@/helpers/render-children';
+import styles from './styles.module.css';
 
 interface DialogTriggerProps {
 	children: ReactNode;
@@ -30,9 +30,8 @@ export function DialogTrigger({
 					className: `${styles.trigger} ${className}`,
 				})
 			) : (
-				<button type="button" onClick={handleOpenModal}>
-					{children}
-				</button>
+				// biome-ignore lint/a11y/useKeyWithClickEvents: 
+				<div onClick={handleOpenModal}>{children}</div>
 			)}
 		</div>
 	);

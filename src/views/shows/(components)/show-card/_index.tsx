@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'react';
 import { truncateString } from '@/helpers/truncate-string';
 import { genresMap } from '@/helpers/available-genres';
 import type { Show } from '@/services/shows/shows-model';
-import { ShowDetailsDialog } from '@/views/shows/(components)/show-details/_index';
+import { ShowDetailsDialog } from '@/views/shows/(components)/show-details-dialog/_index';
 
 import styles from './styles.module.css';
 

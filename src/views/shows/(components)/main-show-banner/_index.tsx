@@ -1,7 +1,7 @@
 import { Button } from '@/components/button';
 import { Plus, ThumbsUp, Volume2Icon } from 'lucide-react';
 import { FadedContainer } from '@/components/faded-container';
-import { ShowDetailsDialog } from '@/views/shows/(components)/show-details/_index';
+import { ShowDetailsDialog } from '@/views/shows/(components)/show-details-dialog/_index';
 import type { Show } from '@/services/shows/shows-model';
 
 import styles from './styles.module.css';
@@ -18,8 +18,9 @@ export function MainShowBanner({ show: mainShow }: MainShowBannerProps): JSX.Ele
 
 				<div className={styles.aboutShow}>
 					<h3>{mainShow?.name}</h3>
+					
 					{mainShow?.summary && (
-						<div dangerouslySetInnerHTML={{ __html: mainShow.summary }} />
+						<div className={styles.summary} dangerouslySetInnerHTML={{ __html: mainShow.summary }} />
 					)}
 
 					<footer className={styles.actions}>
