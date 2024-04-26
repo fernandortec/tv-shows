@@ -19,7 +19,9 @@ export function SelectSeason({ showId }: SelectSeasonProps): JSX.Element {
 	const { data: seasons, isSuccess } = useQuery({
 		queryKey: ['shows', 'seasons', showId],
 		queryFn: () => seasonsServices.listSeasons(showId),
+		enabled: isActive
 	});
+
 
 	useEffect(() => {
 		if (isSuccess) {

@@ -48,7 +48,7 @@ export function EpisodesList(): JSX.Element {
 								</header>
 								<div
 									dangerouslySetInnerHTML={{
-										__html: truncateString(episode.summary, 300),
+										__html: episode?.summary,
 									}}
 								/>
 							</div>

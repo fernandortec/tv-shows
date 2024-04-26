@@ -37,9 +37,10 @@ export function DialogClose({
 				</div>
 			) : (
 				<div className={styles.wrapper}>
-					<button type="button" className={styles.close} onClick={handleCloseModal}>
+					{/* biome-ignore lint/a11y/useValidAnchor: */}
+					<a className={styles.close} onClick={handleCloseModal}>
 						<X size={24} />
-					</button>
+					</a>
 				</div>
 			)}
 		</>

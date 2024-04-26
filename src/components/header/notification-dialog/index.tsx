@@ -1,9 +1,9 @@
-import { Dialog } from "@/components/dialog";
-import { DialogTrigger } from "@/components/dialog/trigger";
-import { Bell, Check } from "lucide-react";
-import styles from "./styles.module.css";
-import { DialogContent } from "@/components/dialog/content";
-import { DialogClose } from "@/components/dialog/close";
+import { Dialog } from '@/components/dialog';
+import { DialogTrigger } from '@/components/dialog/trigger';
+import { Bell, Check } from 'lucide-react';
+import styles from './styles.module.css';
+import { DialogContent } from '@/components/dialog/content';
+import { DialogClose } from '@/components/dialog/close';
 
 export function NotificationsDialog(): JSX.Element {
 	return (

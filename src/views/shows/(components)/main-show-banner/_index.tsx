@@ -5,12 +5,19 @@ import { ShowDetailsDialog } from '@/views/shows/(components)/show-details-dialo
 import type { Show } from '@/services/shows/shows-model';
 
 import styles from './styles.module.css';
+import { useState } from 'react';
 
 interface MainShowBannerProps {
 	show?: Show;
 }
 
 export function MainShowBanner({ show: mainShow }: MainShowBannerProps): JSX.Element {
+	const [openDialog, setOpenDialog] = useState<boolean>(false);
+
+	function handleOpenModal(): void {
+		setOpenDialog(false);
+	}
+
 	return (
 		<div className={styles.imageContainer}>
 			<FadedContainer direction="both">
@@ -18,9 +25,12 @@ export function MainShowBanner({ show: mainShow }: MainShowBannerProps): JSX.Ele
 
 				<div className={styles.aboutShow}>
 					<h3>{mainShow?.name}</h3>
-					
+
 					{mainShow?.summary && (
-						<div className={styles.summary} dangerouslySetInnerHTML={{ __html: mainShow.summary }} />
+						<div
+							className={styles.summary}
+							dangerouslySetInnerHTML={{ __html: mainShow.summary }}
+						/>
 					)}
 
 					<footer className={styles.actions}>

@@ -1,15 +1,14 @@
 .wrapper {
   position: absolute;
-
   top: 0px;
   right: 0px;
 
+  height: 2rem;
+
   padding: 1rem;
+  cursor: pointer;
 }
 
 .close {
-  height: 1.5rem;
-  width: 1.5rem;
-
   color: var(--white);
 }

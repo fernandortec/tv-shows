@@ -1,6 +1,6 @@
-import { DialogContext } from "@/contexts/dialog-context";
-import { type ReactNode, useEffect, useRef, useState } from "react";
-import "./styles.module.css";
+import { DialogContext } from '@/contexts/dialog-context';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
+import './styles.module.css';
 
 interface DialogProps {
 	children: ReactNode;
@@ -19,7 +19,7 @@ export function Dialog({ children }: DialogProps): JSX.Element {
 
 	return (
 		<DialogContext.Provider value={[showModal, setShowModal]}>
-		{children}
+			{children}
 		</DialogContext.Provider>
 	);
 }

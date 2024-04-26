@@ -1,6 +1,7 @@
 import { DialogContext } from '@/contexts/dialog-context';
 import { type CSSProperties, useContext, useEffect, useRef, type ReactNode } from 'react';
 import styles from './styles.module.css';
+import { createPortal } from 'react-dom';
 
 interface DialogContentProps {
 	children: ReactNode;
@@ -32,11 +33,12 @@ export function DialogContent({
 		onClose?.();
 	}
 
-	return (
+	return createPortal(
 		<dialog data-modal ref={dialogRef} onClose={handleCloseDialog}>
 			<div className={`${styles.content} ${className}`} style={style}>
 				{children}
 			</div>
-		</dialog>
+		</dialog>,
+		document.getElementById('portal')!
 	);
 }

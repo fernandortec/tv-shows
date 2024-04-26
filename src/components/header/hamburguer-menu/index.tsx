@@ -1,10 +1,10 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from '@tanstack/react-router';
 
-import { Dialog } from "@/components/dialog";
-import { DialogClose } from "@/components/dialog/close";
-import { DialogContent } from "@/components/dialog/content";
-import { DialogTrigger } from "@/components/dialog/trigger";
-import styles from "./styles.module.css";
+import { Dialog } from '@/components/dialog';
+import { DialogClose } from '@/components/dialog/close';
+import { DialogContent } from '@/components/dialog/content';
+import { DialogTrigger } from '@/components/dialog/trigger';
+import styles from './styles.module.css';
 
 export function HamburguerMenuDialog(): JSX.Element {
 	return (
@@ -12,7 +12,7 @@ export function HamburguerMenuDialog(): JSX.Element {
 			<DialogTrigger className={styles.trigger} asChild>
 				<img src="/assets/hamburguer-menu.svg" alt="Hamburguer Menu Icon" />
 			</DialogTrigger>
-			<DialogContent style={{ width: "100vw", height: "100vh" }}>
+			<DialogContent style={{ width: '100vw', height: '100vh' }}>
 				<DialogClose />
 
 				<ul className={styles.list}>
@@ -20,7 +20,7 @@ export function HamburguerMenuDialog(): JSX.Element {
 						<Link
 							to="/"
 							className={styles.navLink}
-							data-current={location.pathname === "/"}
+							data-current={location.pathname === '/'}
 						>
 							<li>Home</li>
 						</Link>
@@ -30,7 +30,7 @@ export function HamburguerMenuDialog(): JSX.Element {
 						<Link
 							to="/shows"
 							className={styles.navLink}
-							data-current={location.pathname === "/shows"}
+							data-current={location.pathname === '/shows'}
 						>
 							<li>Filmes e séries</li>
 						</Link>
@@ -40,7 +40,7 @@ export function HamburguerMenuDialog(): JSX.Element {
 						<Link
 							to="/support"
 							className={styles.navLink}
-							data-current={location.pathname === "/support"}
+							data-current={location.pathname === '/support'}
 						>
 							<li>Suporte</li>
 						</Link>
@@ -50,7 +50,7 @@ export function HamburguerMenuDialog(): JSX.Element {
 						<Link
 							to="/pricing"
 							className={styles.navLink}
-							data-current={location.pathname === "/pricing"}
+							data-current={location.pathname === '/pricing'}
 						>
 							<li>Planos</li>
 						</Link>
