@@ -150,7 +150,8 @@
 
 @media(max-width: 1000px) {
   .episodesAndInfoSection {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .episodesSection {
@@ -161,5 +162,14 @@
 @media(max-width:768px) {
   .actions {
     flex-direction: column;
+  }
+
+  .content {
+    padding: 1rem;
+    padding-right: 0.2rem;
+  }
+
+  .episodesSection {
+    padding: 3rem 1rem;
   }
 }
