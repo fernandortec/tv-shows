@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"test": "vitest"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.29.2",
@@ -20,6 +21,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.7.0",
 		"@tanstack/router-vite-plugin": "^1.30.0",
+		"@testing-library/dom": "^10.0.0",
 		"@testing-library/jest-dom": "^6.4.2",
 		"@testing-library/react": "^15.0.2",
 		"@types/node": "^20.12.7",
