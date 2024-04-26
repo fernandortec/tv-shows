@@ -2,13 +2,14 @@ import { genres } from '@/helpers/available-genres';
 
 import { Button } from '@/components/button';
 
-import { ActionCard } from '@/views/shows/_components/-action-card';
+import { ActionCard } from '@/views/shows/(components)/action-card/_index';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef, useState } from 'react';
-import styles from './-genres-section.module.css';
 import { ProgressBar } from '@/components/progress-bar';
 
-export function GenresSection(): JSX.Element {
+import styles from './styles.module.css';
+
+export function GenresListSection(): JSX.Element {
 	const [scrollPosition, setScrollPosition] = useState<number>(0);
 	const [scrollPercentage, setScrollPercentage] = useState<number>(0);
 

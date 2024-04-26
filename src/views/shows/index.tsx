@@ -1,8 +1,7 @@
 import { Button } from '@/components/button';
 import { genresMap } from '@/helpers/available-genres';
 
-import { GenresSection } from '@/views/shows/_components/-genres-section';
-import { ShowCard } from '@/views/shows/_components/-show-card';
+import { ShowCard } from '@/views/shows/(components)/show-card/_index';
 import { useQuery } from '@tanstack/react-query';
 import { Link, createFileRoute } from '@tanstack/react-router';
 import { useEffect } from 'react';
@@ -10,8 +9,12 @@ import { useEffect } from 'react';
 import { MainShowBanner } from '@/views/shows/(components)/main-show-banner/_index';
 
 import styles from './styles.module.css';
-import { type SearchShowsSchema, searchShowsSchema } from '@/views/shows/(validators)/_index';
+import {
+	type SearchShowsSchema,
+	searchShowsSchema,
+} from '@/views/shows/(validators)/_index';
 import { showsServices } from '@/services/shows/shows-services';
+import { GenresListSection } from '@/views/shows/(components)/genres-list-section/_index';
 
 export const Route = createFileRoute('/shows/')({
 	component: () => <ShowsPage />,
@@ -51,7 +54,7 @@ function ShowsPage(): JSX.Element {
 					Séries
 				</Button>
 
-				<GenresSection />
+				<GenresListSection />
 
 				<div className={styles.headerSection}>
 					<div>

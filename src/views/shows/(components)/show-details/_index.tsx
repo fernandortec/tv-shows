@@ -1,13 +1,15 @@
 import { Button } from '@/components/button';
 import { useSeasonStore } from '@/store/seasons-store';
-import { Episodes } from '@/views/shows/_components/-episodes';
-import { SelectSeason } from '@/views/shows/_components/-select-seasons';
-import { ShowInfo } from '@/views/shows/_components/-show-info';
+
 import * as Dialog from '@radix-ui/react-dialog';
 import { ArrowLeft, Plus, ThumbsUp, Volume2Icon, X } from 'lucide-react';
 import type { ReactNode } from 'react';
-import styles from './-show-details-dialog.module.css';
 import type { Show } from '@/services/shows/shows-model';
+import { SelectSeason } from '@/views/shows/(components)/select-seasons/_index';
+
+import styles from './styles.module.css';
+import { EpisodesList } from '@/views/shows/(components)/episodes-list/_index';
+import { ExtraShowInfo } from '@/views/shows/(components)/show-info/_index';
 
 interface ShowDetailsDialogProps {
 	children: ReactNode;
@@ -77,10 +79,10 @@ export function ShowDetailsDialog({
 								<SelectSeason showId={show.id} />
 							</header>
 
-							<Episodes />
+							<EpisodesList />
 						</div>
 
-						<ShowInfo show={show} />
+						<ExtraShowInfo show={show} />
 					</section>
 				</Dialog.Content>
 			</Dialog.Portal>

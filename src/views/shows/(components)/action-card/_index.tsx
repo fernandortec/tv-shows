@@ -1,7 +1,8 @@
 import { genresMap } from "@/helpers/available-genres";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import styles from "./-action-card.module.css";
+
+import styles from "./styles.module.css";
 
 interface ActionCardProps {
 	genre: string;

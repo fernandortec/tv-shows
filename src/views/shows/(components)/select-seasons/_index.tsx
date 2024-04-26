@@ -4,7 +4,7 @@ import { ChevronDownIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { seasonsServices } from '@/services/seasons/seasons-services';
 
-import styles from './-select-seasons.module.css';
+import styles from './styles.module.css';
 
 interface SelectSeasonProps {
 	showId: number;

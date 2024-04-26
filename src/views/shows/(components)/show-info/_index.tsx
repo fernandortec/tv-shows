@@ -4,15 +4,16 @@ import { languagesMap } from '@/helpers/languages-map';
 import { useQuery } from '@tanstack/react-query';
 import { Blocks, Calendar, Languages, Star, StarIcon } from 'lucide-react';
 import { useState } from 'react';
-import styles from './-show-info.module.css';
 import type { Show } from '@/services/shows/shows-model';
 import { showsServices } from '@/services/shows/shows-services';
 
-interface ShowInfoProps {
+import styles from './styles.module.css';
+
+interface ExtraShowInfoProps {
 	show: Show;
 }
 
-export function ShowInfo({ show }: ShowInfoProps): JSX.Element {
+export function ExtraShowInfo({ show }: ExtraShowInfoProps): JSX.Element {
 	const { data: crew } = useQuery({
 		queryKey: ['shows', 'crew'],
 		queryFn: () => showsServices.getShowCrew(show.id),

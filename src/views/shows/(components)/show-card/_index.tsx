@@ -1,10 +1,10 @@
-import { ShowDetailsDialog } from '@/views/shows/_components/-show-details-dialog';
 import type { HTMLAttributes } from 'react';
 import { truncateString } from '@/helpers/truncate-string';
 import { genresMap } from '@/helpers/available-genres';
 import type { Show } from '@/services/shows/shows-model';
+import { ShowDetailsDialog } from '@/views/shows/(components)/show-details/_index';
 
-import styles from './-show-card.module.css';
+import styles from './styles.module.css';
 
 interface ShowCardProps extends HTMLAttributes<HTMLDivElement> {
 	show: Show;

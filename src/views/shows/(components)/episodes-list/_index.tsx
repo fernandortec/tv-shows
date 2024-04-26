@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import styles from './-episodes.module.css';
 
 import { useSeasonStore } from '@/store/seasons-store';
 import { addZeroToNumber } from '@/helpers/add-zero';
@@ -7,7 +6,9 @@ import { truncateString } from '@/helpers/truncate-string';
 import { Clock } from 'lucide-react';
 import { episodesServices } from '@/services/episodes/episodes-services';
 
-export function Episodes(): JSX.Element {
+import styles from './styles.module.css';
+
+export function EpisodesList(): JSX.Element {
 	const currentSeason = useSeasonStore((state) => state.currentSeason);
 
 	const { data: episodes } = useQuery({
